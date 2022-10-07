@@ -1,0 +1,38 @@
+html h1{
+  color: black !important;
+  font-family: Poppins !important;
+  font-weight: bold;
+  font-size: 4.375rem;
+}
+
+body h1{
+  margin-top: 2rem;
+}
+
+body div .padding-forzado{
+  padding-left: 1rem;
+  padding-right: 3rem;
+}
+
+/* Creemos en tu trabajo */
+
+.yellow-line{
+  content: "";
+  position: absolute;
+  width: 258px;
+  height: 8px;
+  // left: 917px;
+  // top: 443px;
+  background: #FFCD38;
+  border-radius: 8px;
+  border: 2px solid #FFCD38;
+  transform:rotate(-5deg)
+}
+.box {
+  width: 258px; 
+  height: 8px;  
+  border: solid 5px #FFCD38;
+  border-color: #FFCD38 transparent transparent transparent;
+  border-radius: 60%/20px 15px 0 0;
+  transform:rotate(-5deg)
+}

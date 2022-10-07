@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+$body-bg: #F3F5F9;
+$body-color: #F3F5F9;
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
-@import '/src/app//components/header/header.component.scss'
+@import '/src/app/components/header/header.component.scss';
+@import '/src/app/components/home/home.component.scss'
