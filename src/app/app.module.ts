@@ -8,10 +8,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-import {RouterModule, Routes} from '@angular/router';
+import {Routes} from '@angular/router';
 const routes: Routes = [
-  {path:'', component: HomeComponent}
-]
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'prefix' }];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,6 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
