@@ -8,11 +8,13 @@ import { PerfilContratistaComponent } from './perfil-contratista/perfil-contrati
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PerfilEmpleadoComponent } from './perfil-empleado/perfil-empleado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PerfilContratistaComponent,
+    PerfilEmpleadoComponent,
     HeaderComponent,
     HomeComponent,
     FooterComponent
