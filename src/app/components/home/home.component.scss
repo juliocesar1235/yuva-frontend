@@ -1,0 +1,74 @@
+html h1{
+  color: black !important;
+  font-family: Poppins !important;
+  font-weight: bold;
+  font-size: 4.375rem;
+}
+
+body h1{
+  margin-top: 2rem;
+}
+
+/* Creemos en tu trabajo */
+.text-p-size{
+  color:#7B7777; 
+  font-size: 1.25rem;
+}
+
+.box {
+  width: 258px; 
+  height: 8px;  
+  border: solid 5px #FFCD38;
+  border-color: #FFCD38 transparent transparent transparent;
+  border-radius: 60%/20px 15px 0 0;
+  transform:rotate(-5deg)
+}
+
+//Media queries to change size of text and order of things when screen gets smaller
+@media only screen and (max-width: 1400px) {
+  html h1{
+    font-size: 3.125rem;
+  }
+  
+}
+
+@media only screen and (max-width: 575px) {
+
+  .center-properties {
+    text-align: center; /* added */
+  }
+
+  .container .pos-1{
+    order: 1;
+  }
+
+  .container .pos-2{
+    order: 2;
+  }
+
+  .container .pos-3{
+    order: 3;
+  }
+  .underline-yellow{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width:1199px){
+  html h1{
+    font-size: 2.5rem;
+  }
+
+  .text-p-size{
+    font-size: 0.625rem;
+  }
+  
+  .underline-yellow{
+    display: none;
+  }
+
+  body div .padding-forzado{
+    padding-left: 1rem;
+    padding-right: 3rem;
+  }
+}
