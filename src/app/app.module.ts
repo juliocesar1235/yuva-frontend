@@ -8,6 +8,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 
+import {RouterModule, Routes} from '@angular/router';
+const routes: Routes = [
+  {path:'', component: HomeComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +22,8 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
