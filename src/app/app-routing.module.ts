@@ -4,7 +4,7 @@ import { PerfilContratistaComponent } from './perfil-contratista/perfil-contrati
 
 const routes: Routes = [
   {
-    path: 'perfil-contratista/',
+    path: 'perfil-contratista',
     component: PerfilContratistaComponent
   }
 ];
