@@ -1,8 +1,9 @@
 #container-white{
   background-color: white;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
   padding-top: 3rem;
   padding-left: 3rem;
+  padding-right: 3rem;
 }
 body{
   font-family: Poppins !important;
@@ -15,6 +16,10 @@ body h2  {
   padding-bottom: 1rem;
 }
 
+body h3{
+  color: #868687;
+}
+
 .card-text{
   color: black ;
   font-family: Poppins;
@@ -22,8 +27,18 @@ body h2  {
 }
 
 .heading, .content{
-  width: 50%;
+  // width: 50%;
   float: left;
+}
+
+.content{
+  margin-left: 2rem;
+}
+
+
+.tiempo{
+  color: #868687;
+  font-weight: bold;
 }
 
 .heading{
@@ -47,5 +62,24 @@ body h2  {
   background-color: white;
 }
 /* Servicio de limpieza */
+
+.btn-primary{
+  background-color: #FFCD38;
+  color:white;
+  border-color: #FFCD38;
+  &:hover{
+    background-color: #055CF5;
+    border-color: #055CF5;
+  }
+}
+
+.form-control{
+  color:black;
+}
+
+.costo{
+  color: #055CF5;
+  font-weight: bolder;
+}
 
 
