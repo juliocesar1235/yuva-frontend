@@ -1,0 +1,51 @@
+#container-white{
+  background-color: white;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+  padding-left: 3rem;
+}
+body{
+  font-family: Poppins !important;
+}
+body h2  {
+  color: black !important;
+  font-family: Poppins !important;
+  font-weight: bold !important;
+  font-size: 2.125rem;
+  padding-bottom: 1rem;
+}
+
+.card-text{
+  color: black ;
+  font-family: Poppins;
+  font-size: 0.75rem;
+}
+
+.heading, .content{
+  width: 50%;
+  float: left;
+}
+
+.heading{
+  // text-align: right;
+  font-weight: bold !important;
+}
+
+.content p{
+  text-align: left !important;
+  font-weight: bold !important;
+  color:grey !important;
+}
+
+.card-title{
+  font-size: 0.90rem;
+  color: black;
+  font-weight: bold;
+}
+
+.form-control{
+  background-color: white;
+}
+/* Servicio de limpieza */
+
+
