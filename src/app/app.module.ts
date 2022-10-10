@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PerfilEmpleadoComponent } from './components/perfil-empleado/perfil-empleado.component';
+import { ServicioHistorialComponent } from './components/servicio-historial/servicio-historial.component';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { PerfilEmpleadoComponent } from './components/perfil-empleado/perfil-emp
     PerfilEmpleadoComponent,
     HeaderComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    ServicioHistorialComponent,
+    
   ],
   imports: [
     BrowserModule,
