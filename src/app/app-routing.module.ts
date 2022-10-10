@@ -6,7 +6,7 @@ import { PerfilEmpleadoComponent } from './perfil-empleado/perfil-empleado.compo
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'prefix' }
+  { path: '', redirectTo: '/home', pathMatch: 'prefix' },
   {
     path: 'perfil-contratista',
     component: PerfilContratistaComponent
