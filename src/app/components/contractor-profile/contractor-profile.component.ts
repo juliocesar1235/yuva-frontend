@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router'
 
 @Component({
-  selector: 'app-perfil-contratista',
-  templateUrl: './perfil-contratista.component.html',
-  styleUrls: ['./perfil-contratista.component.scss']
+  selector: 'app-contractor-profile',
+  templateUrl: './contractor-profile.component.html',
+  styleUrls: ['./contractor-profile.component.scss']
 })
-export class PerfilContratistaComponent implements OnInit {
+export class ContractorProfileComponent implements OnInit {
   id: any;
 
   constructor(private route: ActivatedRoute) { }

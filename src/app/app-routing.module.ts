@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { PerfilContratistaComponent } from './components/perfil-contratista/perfil-contratista.component';
-import { PerfilEmpleadoComponent } from './components/perfil-empleado/perfil-empleado.component';
+import { ContractorProfileComponent } from './components/contractor-profile/contractor-profile.component';
+import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
 
-  { path: 'perfil-contratista', component: PerfilContratistaComponent },
-  { path: 'perfil-empleado', component: PerfilEmpleadoComponent },
+  { path: 'contractor-profile', component: ContractorProfileComponent },
+  { path: 'employee-profile', component: EmployeeProfileComponent },
 
   { path: '', redirectTo: '/home', pathMatch: 'prefix' }
 ];
