@@ -2,16 +2,22 @@
 <div class="d-flex justify-content-start mt-5">
     <div class="ms-5 " style="color:black; overflow: hidden;width: 30vw;">
         <div class="card" style="width: 20vw">
-            <img src="../../assets/emp1.png" class="card-img-top" alt="..." style="max-height: 15vw">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" class="card-img-top" alt="..." style="max-height: 15vw">
             <div class="card-body">
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem culpa unde
-                    non
-                    asperiores consectetur nam tempore ipsa voluptate cupiditate labore deleniti iste rem, soluta sequi
-                    possimus, eos dolore. Dolore, totam?
-                    Debitis, eos minus fugiat ipsam, animi tempora cumque omnis cum officiis voluptatem a necessitatibus
-                    cupiditate. Rerum culpa aut eius quos asperiores eaque sint sit tempora, beatae molestiae autem
-                    doloribus cumque?
-                </p>
+
+               <div class="d-flex justify-content-between flex-row">
+                <b>Nombre</b>
+                <p>Lorem Ipsum</p>
+               </div>
+               <div class="d-flex flex-row justify-content-between">
+                <b>Edad</b>
+                <p>Lorem Ipsum</p>
+               </div>
+               <div class="d-flex flex-row justify-content-between">
+                <b># servicios contratados</b>
+                <p>20</p>
+               </div>
+                
                 <ngb-rating [rate]="3" [max]="5" [readonly]="true"></ngb-rating>
             </div>
         </div>
@@ -19,8 +25,9 @@
     </div>
 
 
-    <div class="card mr-auto" style="color:black;">
-        <div class="card-body">
+    <div class="card mr-auto" style="color:black; max-width: 800px;">
+        <div class="card-body d-flex flex-column align-items-center p-5">
+            <h2>Historial de servicios</h2>
 
             <app-servicio-historial></app-servicio-historial>
             <app-servicio-historial></app-servicio-historial>

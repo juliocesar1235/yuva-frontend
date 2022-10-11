@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HistoryServiceComponent } from './history-service.component';
 
-describe('ServicioHistorialComponent', () => {
+describe('HistoryServiceComponent', () => {
   let component: HistoryServiceComponent;
   let fixture: ComponentFixture<HistoryServiceComponent>;
 

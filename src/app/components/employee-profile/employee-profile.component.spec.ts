@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmployeeProfileComponent } from './employee-profile.component';
 
-describe('PerfilEmpleadoComponent', () => {
+describe('EmployeeProfileComponent', () => {
   let component: EmployeeProfileComponent;
   let fixture: ComponentFixture<EmployeeProfileComponent>;
 
