@@ -4,7 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
 
 const routes: Routes = [
-  { path:'servicedetail', component: ServiceDetailComponent },
+  { path:'service-detail', component: ServiceDetailComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'prefix' },
   
