@@ -8,6 +8,7 @@ import { ContractorProfileComponent } from './components/contractor-profile/cont
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 import { HistoryServiceComponent } from './components/history-service/history-service.component';
 
@@ -20,8 +21,8 @@ import { HistoryServiceComponent } from './components/history-service/history-se
     HeaderComponent,
     HomeComponent,
     FooterComponent,
+    ServiceDetailComponent
     HistoryServiceComponent,
-
   ],
   imports: [
     BrowserModule,
