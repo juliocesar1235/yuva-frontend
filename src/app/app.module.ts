@@ -21,8 +21,8 @@ import { HistoryServiceComponent } from './components/history-service/history-se
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    ServiceDetailComponent
-    HistoryServiceComponent,
+    ServiceDetailComponent,
+    HistoryServiceComponent
   ],
   imports: [
     BrowserModule,
