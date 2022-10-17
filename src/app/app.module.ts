@@ -11,6 +11,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 import { HistoryServiceComponent } from './components/history-service/history-service.component';
+import { ServiceCardComponent } from './components/service-card/service-card.component';
+import { ServiceListComponent } from './components/service-list/service-list.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { HistoryServiceComponent } from './components/history-service/history-se
     HomeComponent,
     FooterComponent,
     ServiceDetailComponent,
-    HistoryServiceComponent
+    HistoryServiceComponent,
+    ServiceCardComponent,
+    ServiceListComponent
   ],
   imports: [
     BrowserModule,
