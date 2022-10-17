@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 import { HistoryServiceComponent } from './components/history-service/history-service.component';
+import { FavoriteServiceComponent } from './components/favorite-service/favorite-service.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HistoryServiceComponent } from './components/history-service/history-se
     HomeComponent,
     FooterComponent,
     ServiceDetailComponent,
-    HistoryServiceComponent
+    HistoryServiceComponent,
+    FavoriteServiceComponent
   ],
   imports: [
     BrowserModule,
