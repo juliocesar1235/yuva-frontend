@@ -21,8 +21,8 @@ import {HttpClientModule} from '@angular/common/http'
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    ServiceDetailComponent
-    HistoryServiceComponent,
+    ServiceDetailComponent,
+    HistoryServiceComponent
   ],
   imports: [
     BrowserModule,
