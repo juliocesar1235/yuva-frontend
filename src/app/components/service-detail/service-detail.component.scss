@@ -1,0 +1,84 @@
+#container-white{
+  background-color: white;
+  padding-bottom: 1rem;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+body{
+  font-family: Poppins !important;
+}
+body h2  {
+  color: black !important;
+  font-family: Poppins !important;
+  font-weight: bold !important;
+  font-size: 2.125rem;
+  padding-bottom: 1rem;
+}
+
+body h3{
+  color: #868687;
+}
+
+.card-text{
+  color: black ;
+  font-family: Poppins;
+  font-size: 0.85rem;
+}
+
+.heading, .content{
+  // width: 50%;
+  float: left;
+}
+
+.content{
+  margin-left: 2rem;
+  font-size: 0.90rem;
+}
+
+
+.tiempo{
+  color: #868687;
+  font-weight: bold;
+}
+
+.heading{
+  font-weight: bold !important;
+}
+
+.content p{
+  text-align: left !important;
+  font-weight: bold !important;
+  color:grey !important;
+}
+
+.card-title{
+  font-size: 0.90rem;
+  color: black;
+  font-weight: bold;
+}
+
+.form-control{
+  background-color: white;
+}
+
+.btn-primary{
+  background-color: #FFCD38;
+  color:white;
+  border-color: #FFCD38;
+  &:hover{
+    background-color: #055CF5;
+    border-color: #055CF5;
+  }
+}
+
+.form-control{
+  color:black;
+}
+
+.costo{
+  color: #055CF5;
+  font-weight: bolder;
+}
+
+
