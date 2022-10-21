@@ -10,7 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 import { HistoryServiceComponent } from './components/history-service/history-service.component';
-
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -27,6 +27,7 @@ import { HistoryServiceComponent } from './components/history-service/history-se
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
