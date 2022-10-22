@@ -8,9 +8,9 @@ import { EmployeeProfileComponent } from './components/employee-profile/employee
 const routes: Routes = [
   { path:'service-detail', component: ServiceDetailComponent },
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'prefix' },
   { path: 'profile/contractor', component: ContractorProfileComponent },
   { path: 'profile/employee/:id', component: EmployeeProfileComponent },
+
 
   { path: '', redirectTo: '/home', pathMatch: 'prefix' }
 ];
