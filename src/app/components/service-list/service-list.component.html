@@ -1,27 +1,7 @@
 <app-header></app-header>
 <div class="container align-items-center">
   <div class="row gutters-sm">
-    <!-- <app-service-card></app-service-card> -->
-
-    <div class="card mt-5 mx-auto" style="max-width: 700px;" *ngFor="let service of services">
-
-      <div class="card-body align-items-center d-flex ">
-        <div class="row no-gutters">
-          <div class="col-md-4 align-self-center justify-content-center col-sm-9 mb-3 mt-3">
-            <img src={{service.Avatar}} class="square img-fluid mx-auto d-block" width="200">
-          </div>
-          <div class="col-md-8 px-3 align-self-center ">
-            <div class="card-block px-3">
-              <h4 class="card-title">{{service.name}}</h4>
-              <p class="card-text lighter">{{service.desc}}</p>
-              <button class="btn btn-primary float-end ">Pedir servicio</button>
-              <button class="btn btn float-end me-1">Estrella</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <app-service-card [serviceList]="services"></app-service-card>
   </div>
 </div>
 <app-footer></app-footer>
