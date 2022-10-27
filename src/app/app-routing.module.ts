@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'prefix' }
 ];
 @NgModule({
-
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

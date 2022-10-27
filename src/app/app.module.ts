@@ -15,7 +15,6 @@ import { ServiceCardComponent } from './components/service-card/service-card.com
 import { ServiceListComponent } from './components/service-list/service-list.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
