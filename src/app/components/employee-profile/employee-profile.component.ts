@@ -10,21 +10,21 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router'
 export class EmployeeProfileComponent implements OnInit {
 
   id: any;
-  users: any;
+
   user: any;
   constructor(private http: HttpClient, private route: ActivatedRoute) {
-    alert(JSON.stringify(this.users))
-    this.loadUser()
+    
+  
 
   }
 
   loadUser() {
     console.log("getting user")
     this.http
-      .get('http://localhost:3000/yuva-api/users')
+      .get('http://localhost:3000/yuva-api/users/' + this.id)
     .subscribe((response) =>{
       alert(JSON.stringify(response))
-      this.users = response
+      this.user = response
     }
     )
 
@@ -42,12 +42,10 @@ export class EmployeeProfileComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    this.loadUser()
     this.id = this.route.snapshot.paramMap.get('id')
-    this.user = this.users.find((user:any) =>
-      user["_id"] === this.id
-    )
+    this.loadUser()
+   
     console.log("user:", this.user)
   }
-
+  
 }

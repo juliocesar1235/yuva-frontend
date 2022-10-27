@@ -10,7 +10,7 @@ const routes: Routes = [
   { path:'service-detail', component: ServiceDetailComponent },
   { path: 'services', component: ServiceListComponent },
   { path: 'profile/contractor', component: ContractorProfileComponent },
-  { path: 'profile/employee', component: EmployeeProfileComponent },
+  { path: 'profile/employee/:id', component: EmployeeProfileComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'prefix' }
 ];
