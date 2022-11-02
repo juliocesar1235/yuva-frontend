@@ -13,6 +13,7 @@ import { EmployeeProfileComponent } from './components/employee-profile/employee
 import { HistoryServiceComponent } from './components/history-service/history-service.component';
 import { ServiceCardComponent } from './components/service-card/service-card.component';
 import { ServiceListComponent } from './components/service-list/service-list.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ServiceListComponent } from './components/service-list/service-list.com
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
