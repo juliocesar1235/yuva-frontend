@@ -12,6 +12,50 @@ export class EmployeeProfileComponent implements OnInit {
   id: any;
   user: any;
   service: any;
+  usersInfo = [{
+    propertyName: "firstName",
+    label: "Nombre"
+  },
+  {
+    propertyName: "lastName",
+    label:"Apellido"
+  },   
+  {
+    propertyName: "email",
+    label:"Email"
+  },
+
+  {
+    propertyName: "phoneNumber",
+    label:"Teléfono"
+  },
+  {
+    propertyName: "country",
+    label:"País"
+  },
+  {
+    propertyName: "city",
+    label:"Ciudad"
+  },
+  {
+    propertyName: "userType",
+    label:"Perfil"
+  },
+  {
+    propertyName: "serviceCategory",
+    label:"Categoría"
+  },
+  {
+    propertyName: "workScheduleAvailable",
+    label:"Disponibilidad"
+  },
+  {
+    propertyName: "raiting",
+    label:"Raiting"
+  },
+  
+  
+];
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {
 
@@ -50,6 +94,7 @@ export class EmployeeProfileComponent implements OnInit {
   //   this.id = this.route.snapshot.paramMap.get('id')
   //   //hacer un get al backend con este id de ususario
   // }
+
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')

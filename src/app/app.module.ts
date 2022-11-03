@@ -14,6 +14,9 @@ import { HistoryServiceComponent } from './components/history-service/history-se
 import { ServiceCardComponent } from './components/service-card/service-card.component';
 import { ServiceListComponent } from './components/service-list/service-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
+
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
