@@ -9,7 +9,7 @@ import { ServiceListComponent } from './components/service-list/service-list.com
 const routes: Routes = [
   { path:'service-detail', component: ServiceDetailComponent },
   { path: 'services', component: ServiceListComponent },
-  { path: 'profile/contractor', component: ContractorProfileComponent },
+  { path: 'profile/contractor/:id', component: ContractorProfileComponent },
   { path: 'profile/employee/:id', component: EmployeeProfileComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'prefix' }

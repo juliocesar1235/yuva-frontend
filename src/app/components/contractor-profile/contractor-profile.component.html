@@ -6,19 +6,11 @@
             <img src={{user.avatar}} class="card-img-top" alt="..." style="max-height: 15vw">
             <div class="card-body">
 
-                <div class="d-flex justify-content-between flex-row">
-                    <b>Nombre</b>
-                    <p>Lorem Ipsum</p>
+                <div *ngFor="let category of usersInfo" class="d-flex justify-content-between flex-row">
+                    <b>{{category.label}}</b>
+                    <p>{{user[category.propertyName]}}</p>
                 </div>
-                <div class="d-flex flex-row justify-content-between">
-                    <b>Edad</b>
-                    <p>Lorem Ipsum</p>
-                </div>
-
-                <div class="d-flex flex-row justify-content-between">
-                    <b># servicios contratados</b>
-                    <p>20</p>
-                </div>
+               
 
                 <ngb-rating [rate]="3" [max]="5" [readonly]="true"></ngb-rating>
             </div>
