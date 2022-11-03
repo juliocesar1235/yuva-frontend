@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class ContractorProfileComponent implements OnInit {
   id: any;
   user: any;
-  service: any;
+  services: any;
   usersInfo = [{
     propertyName: "firstName",
     label: "Nombre"
@@ -73,12 +73,14 @@ export class ContractorProfileComponent implements OnInit {
   }
 
   loadService() {
+
+    console.log("This user: " , this.user)
     console.log("getting service,", this.user.serviceId)
     this.http
-      .get("http://localhost:3000/yuva-api/services/" + this.user.serviceId)
+      .get("http://localhost:3000/yuva-api/services/" + "63466d59f5cea1401ec15dbc")
       .subscribe((response) => {
         console.log("got service:", response)
-        this.service = response
+        this.services = response
 
       })
 

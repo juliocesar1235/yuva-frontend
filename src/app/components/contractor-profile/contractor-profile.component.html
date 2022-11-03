@@ -10,9 +10,9 @@
                     <b>{{category.label}}</b>
                     <p>{{user[category.propertyName]}}</p>
                 </div>
-               
 
-                <ngb-rating [rate]="3" [max]="5" [readonly]="true"></ngb-rating>
+
+                <!-- <ngb-rating [rate]="3" [max]="5" [readonly]="true"></ngb-rating> -->
             </div>
         </div>
         <button type="button" class="btn btn-warning mt-5 " style="width:150px ;">Editar perfil</button>
@@ -22,10 +22,10 @@
     <div class="card mr-auto" style="color:black; max-width: 800px;">
         <div class="card-body d-flex flex-column align-items-center p-5">
             <h2>Historial de servicios</h2>
+            <!-- <h2>{{service.name}}</h2>
+            <img src={{service.media.serviceAvatar}} class="card-img-top" alt="..." style="max-height: 15vw"> -->
+            <app-servicio-historial *ngFor="let service of services" [service]="service"></app-servicio-historial>
 
-            <app-servicio-historial></app-servicio-historial>
-            <app-servicio-historial></app-servicio-historial>
-            <app-servicio-historial></app-servicio-historial>
         </div>
     </div>
 
