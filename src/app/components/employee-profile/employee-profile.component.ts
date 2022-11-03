@@ -30,6 +30,18 @@ export class EmployeeProfileComponent implements OnInit {
     label:"Teléfono"
   },
   {
+    propertyName: "dateOfBirth",
+    label:"Fecha nacimiento"
+  },
+  {
+    propertyName: "address",
+    label:"Dirección"
+  },
+  {
+    propertyName: "zipcode",
+    label:"Código Postal"
+  },
+  {
     propertyName: "country",
     label:"País"
   },
@@ -44,16 +56,7 @@ export class EmployeeProfileComponent implements OnInit {
   {
     propertyName: "serviceCategory",
     label:"Categoría"
-  },
-  {
-    propertyName: "workScheduleAvailable",
-    label:"Disponibilidad"
-  },
-  {
-    propertyName: "raiting",
-    label:"Raiting"
-  },
-  
+  }
   
 ];
 
