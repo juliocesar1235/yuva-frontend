@@ -9,56 +9,60 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router'
 })
 export class EmployeeProfileComponent implements OnInit {
 
+
   id: any;
   user: any;
   service: any;
+  date = new Date();
+
+  //  rigtDOB = this.date.toLocaleDateString(users["dateOfBirth"])
   usersInfo = [{
     propertyName: "firstName",
     label: "Nombre"
   },
   {
     propertyName: "lastName",
-    label:"Apellido"
-  },   
+    label: "Apellido"
+  },
   {
     propertyName: "email",
-    label:"Email"
+    label: "Email"
   },
 
   {
     propertyName: "phoneNumber",
-    label:"Teléfono"
+    label: "Teléfono"
   },
   {
-    propertyName: "dateOfBirth",
-    label:"Fecha nacimiento"
+    propertyName: "rigtDOB", //rigtDOB
+    label: "Fecha de nacimiento"
   },
   {
     propertyName: "address",
-    label:"Dirección"
+    label: "Dirección"
   },
   {
     propertyName: "zipcode",
-    label:"Código Postal"
+    label: "Código Postal"
   },
   {
     propertyName: "country",
-    label:"País"
+    label: "País"
   },
   {
     propertyName: "city",
-    label:"Ciudad"
+    label: "Ciudad"
   },
   {
     propertyName: "userType",
-    label:"Perfil"
+    label: "Perfil"
   },
   {
     propertyName: "serviceCategory",
-    label:"Categoría"
+    label: "Categoría"
   }
-  
-];
+
+  ];
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {
 
@@ -73,6 +77,9 @@ export class EmployeeProfileComponent implements OnInit {
       .subscribe((response) => {
         //alert(JSON.stringify(response))
         this.user = response
+        this.user["rigtDOB"] = new Date(this.user["dateOfBirth"]).toLocaleDateString()
+
+
         this.loadService()
 
       }
@@ -101,6 +108,7 @@ export class EmployeeProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')
+
     this.loadUser()
     console.log("user:", this.user)
   }

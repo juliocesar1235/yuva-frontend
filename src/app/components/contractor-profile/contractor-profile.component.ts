@@ -80,7 +80,7 @@ export class ContractorProfileComponent implements OnInit {
       .get("http://localhost:3000/yuva-api/services/" + "63466d59f5cea1401ec15dbc")
       .subscribe((response) => {
         console.log("got service:", response)
-        this.services = response
+        this.services = [response]
 
       })
 
