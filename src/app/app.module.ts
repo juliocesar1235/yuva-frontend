@@ -15,6 +15,7 @@ import { FavoriteServiceComponent } from './components/favorite-service/favorite
 import { ServiceCardComponent } from './components/service-card/service-card.component';
 import { ServiceListComponent } from './components/service-list/service-list.component';
 import {HttpClientModule} from '@angular/common/http';
+import { SigninContractorComponent } from './components/signin-contractor/signin-contractor.component';
 
 
 @NgModule({
@@ -27,9 +28,10 @@ import {HttpClientModule} from '@angular/common/http';
     FooterComponent,
     ServiceDetailComponent,
     HistoryServiceComponent,
-    FavoriteServiceComponent
+    FavoriteServiceComponent,
     ServiceCardComponent,
-    ServiceListComponent
+    ServiceListComponent,
+    SigninContractorComponent
   ],
   imports: [
     BrowserModule,
