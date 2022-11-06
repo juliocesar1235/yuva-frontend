@@ -29,7 +29,7 @@ export class ContractorProfileComponent implements OnInit {
     label:"Teléfono"
   },
   {
-    propertyName: "dateOfBirth",
+    propertyName: "rigtDOB",
     label:"Fecha nacimiento"
   },
   {
@@ -66,6 +66,8 @@ export class ContractorProfileComponent implements OnInit {
       .get('http://localhost:3000/yuva-api/users/' + this.id)
       .subscribe((response) => {
         this.user = response
+        this.user["rigtDOB"] = new Date(this.user["dateOfBirth"]).toLocaleDateString()
+
         this.loadService()
 
       }

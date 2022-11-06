@@ -1,9 +1,9 @@
 <app-header></app-header>
 
-<div class="d-flex justify-content-start mt-5">
-    <div class="ms-5 " style="color:black; overflow: hidden;width: 30vw;">
-        <div class="card" style="width: 20vw">
-            <img src={{user.avatar}} class="card-img-top" alt="..." style="max-height: 15vw">
+<div class="d-flex  flex-wrap flex-md-nowrap justify-content-center mt-5 px-5">
+    <div class="mb-5 " style="color:black; overflow: hidden;max-width: 300px;">
+        <div class="card" >
+            <img src={{user.avatar}} class="card-img-top mx-auto" alt="..." style="max-width: 150px">
             <div class="card-body">
 
                 <div *ngFor="let category of usersInfo" class="d-flex justify-content-between flex-row">
@@ -19,8 +19,8 @@
     </div>
 
 
-    <div class="card mr-auto" style="color:black; max-width: 800px;">
-        <div class="card-body d-flex flex-column align-items-center p-5">
+    <div class="card flex-shrink-1 ms-5" style="color:black; ">
+        <div class="card-body d-flex flex-column align-items-center justify-content-start p-5">
             <h2>Historial de servicios</h2>
             <!-- <h2>{{service.name}}</h2>
             <img src={{service.media.serviceAvatar}} class="card-img-top" alt="..." style="max-height: 15vw"> -->
