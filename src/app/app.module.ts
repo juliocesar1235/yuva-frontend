@@ -17,6 +17,7 @@ import { ServiceListComponent } from './components/service-list/service-list.com
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './components/register/register.component';
+import { TextBoxComponent } from './components/text-box/text-box.component';
 
 
 
@@ -34,7 +35,8 @@ import { RegisterComponent } from './components/register/register.component';
     FavoriteServiceComponent,
     ServiceCardComponent,
     ServiceListComponent,
-    RegisterComponent
+    RegisterComponent,
+    TextBoxComponent
   ],
   imports: [
     BrowserModule,
