@@ -14,7 +14,9 @@ import { HistoryServiceComponent } from './components/history-service/history-se
 import { FavoriteServiceComponent } from './components/favorite-service/favorite-service.component';
 import { ServiceCardComponent } from './components/service-card/service-card.component';
 import { ServiceListComponent } from './components/service-list/service-list.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
 
 
 @NgModule({
@@ -27,7 +29,7 @@ import {HttpClientModule} from '@angular/common/http';
     FooterComponent,
     ServiceDetailComponent,
     HistoryServiceComponent,
-    FavoriteServiceComponent
+    FavoriteServiceComponent,
     ServiceCardComponent,
     ServiceListComponent
   ],
@@ -35,7 +37,8 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
