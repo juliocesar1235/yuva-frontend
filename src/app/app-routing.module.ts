@@ -6,14 +6,14 @@ import { ContractorProfileComponent } from './components/contractor-profile/cont
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 import { FavoriteServiceComponent } from './components/favorite-service/favorite-service.component';
 import { ServiceListComponent } from './components/service-list/service-list.component';
-import { SigninEmployeeComponent } from './components/signin-employee/signin-employee.component';
+import { SignupEmployeeComponent } from './components/signup-employee/signup-employee.component';
 const routes: Routes = [
   { path:'service-detail', component: ServiceDetailComponent },
   { path: 'services', component: ServiceListComponent },
   { path: 'profile/contractor', component: ContractorProfileComponent },
   { path: 'profile/employee', component: EmployeeProfileComponent },
   { path: 'profile/contractor/favorite', component: FavoriteServiceComponent },
-  {path : 'employee/signin', component: SigninEmployeeComponent},
+  {path : 'employee/signin', component: SignupEmployeeComponent},
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'prefix' }
 ];
