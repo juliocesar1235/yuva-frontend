@@ -11,15 +11,14 @@ import { SignupContractorComponent } from './components/signup-contractor/signup
 const routes: Routes = [
   { path:'service-detail', component: ServiceDetailComponent },
   { path: 'services', component: ServiceListComponent },
-  { path: 'profile/contractor', component: ContractorProfileComponent },
-  { path: 'profile/employee', component: EmployeeProfileComponent },
   { path: 'profile/contractor/favorite', component: FavoriteServiceComponent },
   { path: 'contractor/signup', component: SignupContractorComponent },
+  { path: 'profile/contractor/:id', component: ContractorProfileComponent },
+  { path: 'profile/employee/:id', component: EmployeeProfileComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'prefix' }
 ];
 @NgModule({
-
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

@@ -16,6 +16,7 @@ import { ServiceCardComponent } from './components/service-card/service-card.com
 import { ServiceListComponent } from './components/service-list/service-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { SignupContractorComponent } from './components/signup-contractor/signup
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
