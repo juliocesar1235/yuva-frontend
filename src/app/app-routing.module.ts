@@ -6,11 +6,13 @@ import { ContractorProfileComponent } from './components/contractor-profile/cont
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 import { FavoriteServiceComponent } from './components/favorite-service/favorite-service.component';
 import { ServiceListComponent } from './components/service-list/service-list.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path:'service-detail', component: ServiceDetailComponent },
   { path: 'services', component: ServiceListComponent },
   { path: 'profile/contractor/favorite', component: FavoriteServiceComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'profile/contractor/:id', component: ContractorProfileComponent },
   { path: 'profile/employee/:id', component: EmployeeProfileComponent },
   { path: 'home', component: HomeComponent },
