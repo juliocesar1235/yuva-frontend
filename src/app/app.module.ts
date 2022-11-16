@@ -16,6 +16,7 @@ import { ServiceCardComponent } from './components/service-card/service-card.com
 import { ServiceListComponent } from './components/service-list/service-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -31,7 +32,8 @@ import { CommonModule } from '@angular/common';
     HistoryServiceComponent,
     FavoriteServiceComponent,
     ServiceCardComponent,
-    ServiceListComponent
+    ServiceListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
