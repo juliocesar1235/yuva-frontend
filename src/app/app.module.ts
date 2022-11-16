@@ -14,10 +14,10 @@ import { HistoryServiceComponent } from './components/history-service/history-se
 import { FavoriteServiceComponent } from './components/favorite-service/favorite-service.component';
 import { ServiceCardComponent } from './components/service-card/service-card.component';
 import { ServiceListComponent } from './components/service-list/service-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
+import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
-
 
 
 @NgModule({
@@ -33,6 +33,7 @@ import { LoginComponent } from './components/login/login.component';
     FavoriteServiceComponent,
     ServiceCardComponent,
     ServiceListComponent,
+    SignupContractorComponent,
     LoginComponent
   ],
   imports: [
