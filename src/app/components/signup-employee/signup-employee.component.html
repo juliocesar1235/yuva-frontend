@@ -17,7 +17,7 @@
 
                 <div class="form-outline mb-4">
                   <label class="form-label">Primer Apellido*</label>
-                  <input type="text" ngModel name= "LastName" class="form-control form-control-lg" placeholder="Ingresa tu nombre" />
+                  <input type="text" ngModel name= "lastName" class="form-control form-control-lg" placeholder="Ingresa tu nombre" />
                 </div>
 
                 <div class="col-12">
@@ -26,7 +26,7 @@
                     <input
                       class="form-control form-control-lg"
                       placeholder="yyyy-mm-dd"
-                      name="dateOfBirth"
+                      name="dob"
                       ngModel
                       ngbDatepicker
                       #d="ngbDatepicker"
@@ -37,8 +37,9 @@
 
                 <div class="form-outline mb-4">
                   <label class="form-label">Servicio*</label>
-                  <select class="form-select">
-                    <option name= "serviceCategory" ngModel ngDefaultControl *ngFor="let service of pservices">{{service.name}}</option>
+                  <select class="form-select" name="serviceCategory" #teams (change)="onSelected(teams.value)">
+                    <option default>Selecciona un servicio</option>
+                    <option   ngDefaultControl *ngFor="let service of pservices">{{service.name}}</option>
                   </select>
                 </div>
 
