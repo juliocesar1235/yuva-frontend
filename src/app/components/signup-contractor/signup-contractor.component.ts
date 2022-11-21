@@ -45,9 +45,9 @@ export class SignupContractorComponent implements OnInit {
 
     console.log(newData)
 
-    // this.signupcontractorservices.serveUser(newData).subscribe((result:any)=>{
-    //   console.warn(result)
-    // })
+    this.signupcontractorservices.serveUser(newData).subscribe((result:any)=>{
+      console.warn(result)
+    })
   }
 
 }
