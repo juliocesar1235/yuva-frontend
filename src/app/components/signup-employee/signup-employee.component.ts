@@ -15,6 +15,7 @@ interface EmployeeI{
   country: string;
   userType: string;
   serviceCategory: string;
+  serviceId: string;
 }
 
 
@@ -38,8 +39,13 @@ export class SignupEmployeeComponent implements OnInit {
   }
   
   selectedService = '';
-	onSelected(value:string):void {
-		this.selectedService = value;
+  selectedServiceID = '';
+	onSelected(service:any):void {
+    console.log(service)
+    const cosa = service.target.options;
+    const index = cosa.selectedIndex;
+		this.selectedService = cosa[index].text;
+    this.selectedServiceID = cosa[index].value;
 	}
 
   getUserFormData(data:{firstName: string, lastName: string, dob: NgbDate, serviceCategory: string, address: string, city: string, zipcode: string, phoneNumber: string}){
@@ -55,7 +61,8 @@ export class SignupEmployeeComponent implements OnInit {
       city: data.city,
       country: "Mexico",
       userType: "employee",
-      serviceCategory: this.selectedService
+      serviceCategory: this.selectedService,
+      serviceId: this.selectedServiceID
     }
 
     console.log(newData)

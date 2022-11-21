@@ -37,9 +37,9 @@
 
                 <div class="form-outline mb-4">
                   <label class="form-label">Servicio*</label>
-                  <select class="form-select" name="serviceCategory" #teams (change)="onSelected(teams.value)">
+                  <select class="form-select" name="serviceCategory" #teams (change)="onSelected($event)">
                     <option default>Selecciona un servicio</option>
-                    <option   ngDefaultControl *ngFor="let service of pservices">{{service.name}}</option>
+                    <option ngDefaultControl [value]="service._id" *ngFor="let service of pservices">{{service.name}}</option>
                   </select>
                 </div>
 
