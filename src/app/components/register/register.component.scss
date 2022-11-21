@@ -1,4 +1,21 @@
-html, body{
-    background-image: url(https://img.freepik.com/free-photo/interior-has-armchair-empty-white-wall-background-3d-rendering_41470-1785.jpg?w=2000&t=st=1668618063~exp=1668618663~hmac=9d288541951ea9039474411a42493450296b3f8c20a95153d1033a6cd44878ba);
-    background-color: blue;
+// .root{
+//     background: url(https://img.freepik.com/free-photo/interior-has-armchair-empty-white-wall-background-3d-rendering_41470-1785.jpg?w=2000&t=st=1668618063~exp=1668618663~hmac=9d288541951ea9039474411a42493450296b3f8c20a95153d1033a6cd44878ba);
+//     // background-color: aqua;
+// }
+
+
+body,
+html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("https://img.freepik.com/free-photo/interior-has-armchair-empty-white-wall-background-3d-rendering_41470-1785.jpg?w=2000&t=st=1668618063~exp=1668618663~hmac=9d288541951ea9039474411a42493450296b3f8c20a95153d1033a6cd44878ba)");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
