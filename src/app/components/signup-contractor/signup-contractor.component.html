@@ -8,55 +8,55 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-3">Ingrese su información</h2>
 
-              <form>
+              <form #contractorForm = "ngForm" (ngSubmit)="getUserFormData(contractorForm.value)">
 
                 <div class="form-outline mb-4">
-                  <label class="form-label">Nombre*</label>
-                  <input type="text" class="form-control form-control-lg" placeholder="Ingresa tu nombre" />
+                  <label class="form-label">Primer nombre*</label>
+                  <input type="text" name="firstName" ngModel class="form-control form-control-lg" placeholder="Ingresa tu primer nombre" />
                 </div>
 
                 <div class="form-outline mb-4">
-                  <label class="form-label">Calle*</label>
-                  <input type="text" class="form-control form-control-lg" placeholder="Ingresa tu calle" />
+                  <label class="form-label">Apellido*</label>
+                  <input type="text" name="lastName" ngModel class="form-control form-control-lg" placeholder="Ingresa tu apellido" />
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">Fecha de nacimiento*</label>
+                  <div class="input-group mb-4">
+                    <input
+                      class="form-control form-control-lg"
+                      placeholder="yyyy-mm-dd"
+                      name="dob"
+                      ngModel
+                      ngbDatepicker
+                      #d="ngbDatepicker"
+                    />
+                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+                  </div>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <label class="form-label">Numero exterior/interior*</label>
-                  <input type="text" class="form-control form-control-lg" placeholder="Ingresa tu numero exterior/interior" />
-                </div>
-
-                <div class="form-outline mb-4">
-                  <label class="form-label">Estado*</label>
-                  <select class=" form-select">
-                    <option Value="1">Estado</option>
-                    <option value="2">One</option>
-                    <option value="3">Two</option>
-                    <option value="4">Three</option>
-                  </select>
+                  <label class="form-label">Calle y número*</label>
+                  <input type="text" name="address" ngModel class="form-control form-control-lg" placeholder="Ingresa tu calle" />
                 </div>
 
                 <div class="form-outline mb-4">
                   <label class="form-label">Municipio*</label>
-                  <select class="form-select">
-                    <option Value="1">Municipio</option>
-                    <option value="2">One</option>
-                    <option value="3">Two</option>
-                    <option value="4">Three</option>
-                  </select>
+                  <input type="text" name="city" ngModel class="form-control form-control-lg" placeholder="Ingresa tu municipio" />
                 </div>
 
                 <div class="form-outline mb-4">
                   <label class="form-label">Codigo Postal*</label>
-                  <input type="text" class="form-control form-control-lg" placeholder="Ingresa tu codigo postal" />
+                  <input type="text" name="zipcode" ngModel class="form-control form-control-lg" placeholder="Ingresa tu codigo postal" />
                 </div>
 
                 <div class="form-outline mb-4">
                   <label class="form-label">Numero de teléfono*</label>
-                  <input type="text" class="form-control form-control-lg" placeholder="Ingresa tu numero de teléfono*" />
+                  <input type="text" name="phoneNumber" ngModel class="form-control form-control-lg" placeholder="Ingresa tu numero de teléfono*" />
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="button"
+                  <button type="submit"
                     class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body mt-2">Continuar</button>
                 </div>
 

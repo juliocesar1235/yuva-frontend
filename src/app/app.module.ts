@@ -19,6 +19,7 @@ import { SignupEmployeeComponent } from './components/signup-employee/signup-emp
 import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
