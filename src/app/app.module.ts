@@ -20,6 +20,7 @@ import { SignupContractorComponent } from './components/signup-contractor/signup
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
