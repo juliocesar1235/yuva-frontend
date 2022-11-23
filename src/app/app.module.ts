@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './components/register/register.component';
 import { TextBoxComponent } from './components/text-box/text-box.component';
+import { FooterForRegisterComponent } from './components/footer-for-register/footer-for-register.component';
 
 
 
@@ -36,7 +37,8 @@ import { TextBoxComponent } from './components/text-box/text-box.component';
     ServiceCardComponent,
     ServiceListComponent,
     RegisterComponent,
-    TextBoxComponent
+    TextBoxComponent,
+    FooterForRegisterComponent
   ],
   imports: [
     BrowserModule,
