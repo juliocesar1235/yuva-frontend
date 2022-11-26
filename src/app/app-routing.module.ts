@@ -10,7 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { SignupEmployeeComponent } from './components/signup-employee/signup-employee.component';
 import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { GoogleSigninComponent } from './components/google-signin/google-signin.component';
 
 const routes: Routes = [
   { path: 'service-detail', component: ServiceDetailComponent },
@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'contractor/signup', component: SignupContractorComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile/contractor/:id', component: ContractorProfileComponent },
+  { path: 'googleSignIn', component: GoogleSigninComponent },
   { path: 'profile/employee/:id', component: EmployeeProfileComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },

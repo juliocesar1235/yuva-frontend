@@ -9,6 +9,6 @@ export class SignupContractorService {
   constructor(private http: HttpClient) { }
 
   serveUser(data:any){
-    return this.http.post(this.url, data)
+    return this.http.put(this.url, data)
   }
 }

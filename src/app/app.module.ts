@@ -23,6 +23,14 @@ import { SignupEmployeeComponent } from './components/signup-employee/signup-emp
 import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { GoogleSigninComponent } from './components/google-signin/google-signin.component';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +50,8 @@ import { FormsModule } from '@angular/forms';
     FooterForRegisterComponent,
     SignupEmployeeComponent,
     SignupContractorComponent,
-    LoginComponent
+    LoginComponent,
+    GoogleSigninComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +59,23 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [{
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider('390325317211-qvh4viqaqvas45nui5pmdp6m9c56mhfh.apps.googleusercontent.com'),
+        },
+      ],
+    } as SocialAuthServiceConfig,
+  },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
