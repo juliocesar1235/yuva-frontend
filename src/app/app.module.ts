@@ -19,9 +19,10 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './components/register/register.component';
 import { TextBoxComponent } from './components/text-box/text-box.component';
 import { FooterForRegisterComponent } from './components/footer-for-register/footer-for-register.component';
-
-
-
+import { SignupEmployeeComponent } from './components/signup-employee/signup-employee.component';
+import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,14 +39,18 @@ import { FooterForRegisterComponent } from './components/footer-for-register/foo
     ServiceListComponent,
     RegisterComponent,
     TextBoxComponent,
-    FooterForRegisterComponent
+    FooterForRegisterComponent,
+    SignupEmployeeComponent,
+    SignupContractorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

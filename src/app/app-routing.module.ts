@@ -7,15 +7,21 @@ import { EmployeeProfileComponent } from './components/employee-profile/employee
 import { FavoriteServiceComponent } from './components/favorite-service/favorite-service.component';
 import { ServiceListComponent } from './components/service-list/service-list.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SignupEmployeeComponent } from './components/signup-employee/signup-employee.component';
+import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
-  { path:'service-detail', component: ServiceDetailComponent },
+  { path: 'service-detail', component: ServiceDetailComponent },
   { path: 'services', component: ServiceListComponent },
-  { path: 'profile/contractor', component: ContractorProfileComponent },
-  { path: 'profile/employee', component: EmployeeProfileComponent },
   { path: 'profile/contractor/favorite', component: FavoriteServiceComponent },
-  { path: 'register', component: RegisterComponent},
+  { path: 'employee/signup', component: SignupEmployeeComponent },
+  { path: 'contractor/signup', component: SignupContractorComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'profile/contractor/:id', component: ContractorProfileComponent },
+  { path: 'profile/employee/:id', component: EmployeeProfileComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'prefix' }
 ];

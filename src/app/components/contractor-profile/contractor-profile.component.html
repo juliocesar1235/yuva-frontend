@@ -7,8 +7,8 @@
             <div class="card-body">
 
                 <div *ngFor="let category of usersInfo" class="d-flex justify-content-between flex-row">
-                    <b>{{category.label}}</b>
-                    <p>{{user[category.propertyName]}}</p>
+                    <b *ngIf="user[category.propertyName]">{{category.label}}</b>
+                    <p *ngIf="user[category.propertyName]">{{user[category.propertyName]}}</p>
                 </div>
 
 

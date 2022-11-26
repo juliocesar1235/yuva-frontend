@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router'
-
+import { userKeys } from "../../models/common-keys"
 @Component({
   selector: 'app-employee-profile',
   templateUrl: './employee-profile.component.html',
@@ -15,54 +15,7 @@ export class EmployeeProfileComponent implements OnInit {
   service: any;
   date = new Date();
 
-  //  rigtDOB = this.date.toLocaleDateString(users["dateOfBirth"])
-  usersInfo = [{
-    propertyName: "firstName",
-    label: "Nombre"
-  },
-  {
-    propertyName: "lastName",
-    label: "Apellido"
-  },
-  {
-    propertyName: "email",
-    label: "Email"
-  },
-
-  {
-    propertyName: "phoneNumber",
-    label: "Teléfono"
-  },
-  {
-    propertyName: "rigtDOB", //rigtDOB
-    label: "Fecha de nacimiento"
-  },
-  {
-    propertyName: "address",
-    label: "Dirección"
-  },
-  {
-    propertyName: "zipcode",
-    label: "Código Postal"
-  },
-  {
-    propertyName: "country",
-    label: "País"
-  },
-  {
-    propertyName: "city",
-    label: "Ciudad"
-  },
-  {
-    propertyName: "userType",
-    label: "Perfil"
-  },
-  {
-    propertyName: "serviceCategory",
-    label: "Categoría"
-  }
-
-  ];
+  usersInfo = userKeys
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {
 
@@ -77,7 +30,7 @@ export class EmployeeProfileComponent implements OnInit {
       .subscribe((response) => {
         //alert(JSON.stringify(response))
         this.user = response
-        this.user["rigtDOB"] = new Date(this.user["dateOfBirth"]).toLocaleDateString()
+        this.user["formattedDOB"] = new Date(this.user["dateOfBirth"]).toLocaleDateString()
 
 
         this.loadService()
@@ -98,19 +51,12 @@ export class EmployeeProfileComponent implements OnInit {
       })
 
   }
-  // constructor(private route: ActivatedRoute) { }
-  // ngOnInit(): void {
-  //   // get route from router and get parameter with paramMap
-  //   this.id = this.route.snapshot.paramMap.get('id')
-  //   //hacer un get al backend con este id de ususario
-  // }
 
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')
-
     this.loadUser()
-    console.log("user:", this.user)
+
   }
 
 }

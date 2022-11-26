@@ -1,0 +1,76 @@
+<app-header></app-header>
+
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3 mt-5">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-3">Ingrese su información</h2>
+
+              <form #contractorForm = "ngForm" (ngSubmit)="getUserFormData(contractorForm.value)">
+
+                <div class="form-outline mb-4">
+                  <label class="form-label">Primer nombre*</label>
+                  <input type="text" name="firstName" ngModel class="form-control form-control-lg" placeholder="Ingresa tu primer nombre" />
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label">Apellido*</label>
+                  <input type="text" name="lastName" ngModel class="form-control form-control-lg" placeholder="Ingresa tu apellido" />
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">Fecha de nacimiento*</label>
+                  <div class="input-group mb-4">
+                    <input
+                      class="form-control form-control-lg"
+                      placeholder="yyyy-mm-dd"
+                      name="dob"
+                      ngModel
+                      ngbDatepicker
+                      #d="ngbDatepicker"
+                    />
+                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label">Calle y número*</label>
+                  <input type="text" name="address" ngModel class="form-control form-control-lg" placeholder="Ingresa tu calle" />
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label">Municipio*</label>
+                  <input type="text" name="city" ngModel class="form-control form-control-lg" placeholder="Ingresa tu municipio" />
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label">Codigo Postal*</label>
+                  <input type="text" name="zipcode" ngModel class="form-control form-control-lg" placeholder="Ingresa tu codigo postal" />
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label">Numero de teléfono*</label>
+                  <input type="text" name="phoneNumber" ngModel class="form-control form-control-lg" placeholder="Ingresa tu numero de teléfono*" />
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit"
+                    class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body mt-2">Continuar</button>
+                </div>
+
+                <p class="text-center text-muted mt-4 mb-0">Ya tiene una cuenta? <a href="#!"
+                    class="fw-bold text-muted"><u>Inicie sesión aquí</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<app-footer></app-footer>
+
