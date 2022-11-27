@@ -25,13 +25,10 @@ interface User{
 })
 export class GoogleSigninComponent implements OnInit {
   loginForm!: FormGroup;
-  // socialUser!: SocialUser;
   isLoggedin?: boolean = false
   user!: SocialUser;
   serviceData :string = "ok"
 
-  // @ViewChild('yuverobtn') myNameElem!: ElementRef<HTMLButtonElement>;
-  // @ViewChild('clientebtn') clienteb!: ElementRef<HTMLButtonElement>;
   tipouser = ''
   userResponse!:IUserRes;
   constructor(private formBuilder: FormBuilder,
@@ -72,15 +69,10 @@ export class GoogleSigninComponent implements OnInit {
         })
         
       });
-      // this.data.currentMessage.subscribe(message => this.message = message);
-      
-      // console.log("MESAEEEEEE", message)
-      
     
     }
   
     loginWithGoogle(): void {
-      console.log("AQUIIIIIIIIIIIIIIIIIII")
       // console.log(this.myNameElem.nativeElement.getElementsByTagName("IFRAME")[0].getAttribute('src'))
       this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userData) =>{
         // this.sendToRestApiMethod(userData.token)

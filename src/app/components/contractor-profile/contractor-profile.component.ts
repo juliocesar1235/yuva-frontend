@@ -45,10 +45,6 @@ export class ContractorProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')
-    // this.activatedRoute.queryParams.subscribe((params: any) => {
-    //   console.log("PARAMMMMSSSS contractor Profile ", JSON.stringify(params.data))
-    //   this.id = params.data
-    // })
     this.loadUser()
 
   }
