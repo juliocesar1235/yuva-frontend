@@ -20,7 +20,8 @@ import { SignupContractorComponent } from './components/signup-contractor/signup
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { VistaServicioContratarComponent } from './components/vista-servicio-contratar/vista-servicio-contratar.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FormsModule } from '@angular/forms';
     ServiceListComponent,
     SignupEmployeeComponent,
     SignupContractorComponent,
-    LoginComponent
+    LoginComponent,
+    VistaServicioContratarComponent
   ],
   imports: [
     BrowserModule,
