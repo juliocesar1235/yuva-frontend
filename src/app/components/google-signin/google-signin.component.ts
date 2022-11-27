@@ -7,6 +7,7 @@ import {
 } from '@abacritt/angularx-social-login';
 import { ActivatedRoute, Router } from '@angular/router';
 import {GoogleSigninService } from '../../services/google-signin.service';
+import { IUserRes } from '../../interfaces/user';
 
 interface User{
   firstName: string;
@@ -32,7 +33,7 @@ export class GoogleSigninComponent implements OnInit {
   // @ViewChild('yuverobtn') myNameElem!: ElementRef<HTMLButtonElement>;
   // @ViewChild('clientebtn') clienteb!: ElementRef<HTMLButtonElement>;
   tipouser = ''
-
+  userResponse!:IUserRes;
   constructor(private formBuilder: FormBuilder,
     private socialAuthService: SocialAuthService,
     public activatedRoute: ActivatedRoute,
@@ -57,15 +58,19 @@ export class GoogleSigninComponent implements OnInit {
           userType: this.tipouser,
         }
         console.log(newData)
-        this.signuS.serveUser(newData).subscribe((result)=>{
-          console.warn(result)
+        this.signuS.serveUser(newData).subscribe((result: any)=>{
+          console.log("REPONSEEEE", result)
+          this.userResponse = result
+
+          if(this.tipouser == 'employee'){
+            this.router.navigate(['employee/signup'], {queryParams:{data: this.userResponse.insertedId}})
+          }else{
+            this.router.navigate(['contractor/signup'], {queryParams:{data: this.userResponse.insertedId}})
+            
+          }
+
         })
-        if(this.tipouser == 'employee'){
-          this.router.navigate(['employee/signup'], {queryParams:{data: newData}})
-        }else{
-          this.router.navigate(['contractor/signup'], {queryParams:{data: newData}})
-          
-        }
+        
       });
       // this.data.currentMessage.subscribe(message => this.message = message);
       
@@ -89,9 +94,9 @@ export class GoogleSigninComponent implements OnInit {
         this.signuS.serveUser(newData)
 
         if(this.tipouser == 'employee'){
-          this.router.navigate(['employee/signup'], {queryParams:{data: newData}})
+          this.router.navigate(['employee/signup'], {queryParams:{data: newData.email}})
         }else{
-          this.router.navigate(['contractor/signup'], {queryParams:{data: newData}})
+          this.router.navigate(['contractor/signup'], {queryParams:{data: newData.email}})
           
         }
       })

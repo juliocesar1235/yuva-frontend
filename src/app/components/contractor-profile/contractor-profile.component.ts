@@ -13,7 +13,7 @@ export class ContractorProfileComponent implements OnInit {
   services: any;
   usersInfo = userKeys
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute, public activatedRoute: ActivatedRoute) { }
 
   loadUser() {
     console.log("getting user")
@@ -45,6 +45,10 @@ export class ContractorProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')
+    // this.activatedRoute.queryParams.subscribe((params: any) => {
+    //   console.log("PARAMMMMSSSS contractor Profile ", JSON.stringify(params.data))
+    //   this.id = params.data
+    // })
     this.loadUser()
 
   }
