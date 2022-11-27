@@ -9,7 +9,7 @@ import { ServiceListComponent } from './components/service-list/service-list.com
 import { SignupEmployeeComponent } from './components/signup-employee/signup-employee.component';
 import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
 import { LoginComponent } from './components/login/login.component';
-
+// import { VistaServicioContratarComponent } './components/vista-servicio-contratar/vista-servicio-contratar.component';
 
 const routes: Routes = [
   { path:'service-detail', component: ServiceDetailComponent },
@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile/contractor/:id', component: ContractorProfileComponent },
   { path: 'profile/employee/:id', component: EmployeeProfileComponent },
+  
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'prefix' }
 ];
