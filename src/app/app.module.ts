@@ -23,7 +23,7 @@ import { SignupEmployeeComponent } from './components/signup-employee/signup-emp
 import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
 import { LoginComponent } from './components/login/login.component';
 import { VistaServicioContratarComponent } from './components/vista-servicio-contratar/vista-servicio-contratar.component';
-
+import { NgForm, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -53,6 +53,7 @@ import { VistaServicioContratarComponent } from './components/vista-servicio-con
     HttpClientModule,
     CommonModule,
     FormsModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
