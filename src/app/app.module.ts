@@ -30,7 +30,7 @@ import {
 } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { GoogleSigninComponent } from './components/google-signin/google-signin.component';
-
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -70,7 +70,7 @@ import { GoogleSigninComponent } from './components/google-signin/google-signin.
       providers: [
         {
           id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider('390325317211-qvh4viqaqvas45nui5pmdp6m9c56mhfh.apps.googleusercontent.com'),
+          provider: new GoogleLoginProvider(environment.googleProvider),
         },
       ],
     } as SocialAuthServiceConfig,
