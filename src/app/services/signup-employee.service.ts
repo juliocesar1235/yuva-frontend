@@ -21,8 +21,8 @@ export class SignupEmployeeService {
     
   }
   
-  serveUser(data:any){
-    return this.http.post(this.url2, data)
+  updateUser(id:string, data:any){
+    return this.http.put(this.url2 + "/" + id, data, { responseType: 'text'}).toPromise()
   }
 
 }

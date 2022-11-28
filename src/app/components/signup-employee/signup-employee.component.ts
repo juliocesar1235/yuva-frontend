@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { SignupEmployeeService } from '../../services/signup-employee.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IUserRes } from '../../interfaces/user'
 
 interface EmployeeI{
-  firstName: string;
-  lastName: string;
-  email: string;
   phoneNumber: string;
-  dateOfBirth: string;
-  avatar: string;
+  dateOfBirth: Date;
   address: string;
   zipcode: string;
   city: string;
-  country: string;
-  userType: string;
   serviceCategory: string;
   serviceId: string;
 }
@@ -28,14 +24,19 @@ interface EmployeeI{
 export class SignupEmployeeComponent implements OnInit {
 
   public pservices: Array<any> = [];
+  userID!:string;
+  userResponse!:IUserRes;
 
-  constructor(private signupemployeeservices:SignupEmployeeService) { 
+  constructor(private signupemployeeservices:SignupEmployeeService, public activatedRoute: ActivatedRoute, private router: Router) { 
     this.signupemployeeservices.getServices().subscribe((resp: any)=>{
       this.pservices = resp;
     })
   }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe((params: any) => {
+      this.userID = params.data
+    })
   }
   
   selectedService = '';
@@ -50,25 +51,21 @@ export class SignupEmployeeComponent implements OnInit {
 
   getUserFormData(data:{firstName: string, lastName: string, dob: NgbDate, serviceCategory: string, address: string, city: string, zipcode: string, phoneNumber: string}){
     
-    let newData:EmployeeI = { firstName: data.firstName,
-      lastName: data.lastName,
-      email: "fea@gmail.com",
+    let newData:EmployeeI = {
       phoneNumber: data.phoneNumber,
-      dateOfBirth: new Date(data.dob.year, data.dob.month - 1, data.dob.day).toISOString(),
-      avatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FPancho_Villa&psig=AOvVaw0O6piA2d_Psypb5HjvHrNx&ust=1665694588842000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKDCm4TK2_oCFQAAAAAdAAAAABAD",
+      dateOfBirth: new Date(data.dob.year, data.dob.month - 1, data.dob.day),
       address: data.address,
       zipcode: data.zipcode,
       city: data.city,
-      country: "Mexico",
-      userType: "employee",
       serviceCategory: this.selectedService,
       serviceId: this.selectedServiceID
     }
 
-    console.log(newData)
+    console.log("AAAAAAAA", this.userID)
     
-    this.signupemployeeservices.serveUser(newData).subscribe((result)=>{
-      console.warn(result)
+    this.signupemployeeservices.updateUser(this.userID, newData).then((result:any)=>{
+      this.userResponse = result
+      this.router.navigate(['/profile/employee/' + this.userResponse], {queryParams:{data: this.userResponse}})
     })
   }
 
