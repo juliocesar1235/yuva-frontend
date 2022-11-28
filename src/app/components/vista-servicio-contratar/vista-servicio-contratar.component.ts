@@ -10,9 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 export class VistaServicioContratarComponent implements OnInit {
 
   allocation: any;
+  employee: any;
   id: any;
 
-  constructor(private http: HttpClient,private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
 
   loadAllocation() {
@@ -22,12 +23,22 @@ export class VistaServicioContratarComponent implements OnInit {
       .subscribe((response) => {
         //alert(JSON.stringify(response))
         this.allocation = response
-        console.log(this.allocation)
+
+        this.http
+          .get('http://localhost:3000/yuva-api/users/' + this.allocation.confirmedEmployeeId)
+          .subscribe((response) => {
+            //alert(JSON.stringify(response))
+            this.employee = response
+          })
 
       }
       )
 
   }
+
+
+
+
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')

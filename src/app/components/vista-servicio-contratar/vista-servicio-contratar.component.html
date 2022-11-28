@@ -4,14 +4,15 @@
   <div class="card" style="width: 50rem;">
     <div class="card-body">
       <h5 class="card-title text-center" style="font-size: 3vw">Servicio a contratar</h5>
-      <p class="card-text mt-5 ms-4">Nombre del servicio: {{allocation.serviceName}} </p>
-      <p class="card-text mt-5 ms-4">Nombre del empleado: {{2+3}} </p>
-      <p class="card-text mt-4 ms-4">Fecha de confirmación: {{allocation.confirmedServiceDate}} </p>
-      <p class="card-text mt-4 ms-4">Duración del servicio:{{allocation.completedServiceTotalTime}} </p>
-      <p class="card-text mt-4 ms-4">Dirección del servicio: {{allocation.serviceAddress}}</p>
-      <p class="card-text mt-4 ms-4">Status del servicio: {{allocation.serviceStatus}}</p>
-      <p class="card-text mt-4 ms-4">Rating: {{allocation.rating}} </p>
-      <p class="card-text mt-4 ms-4 mb-5">Costo:{{allocation.cost}} </p>
+      <p class="card-text mt-5 ms-4"><b>Nombre del servicio:</b> {{ allocation.serviceName}} </p>
+      <p class="card-text mt-4 ms-4" *ngIf="employee"><b>Nombre del empleado:</b> {{ employee.firstName}} {{employee.lastName}}</p>
+      <p class="card-text mt-4 ms-4" *ngIf="!employee"><b>Nombre del empleado:</b> Buscando empleado...</p>
+      <p class="card-text mt-4 ms-4"><b>Fecha de confirmación:</b> {{ allocation.confirmedServiceDate}} </p>
+      <p class="card-text mt-4 ms-4"><b>Duración del servicio:</b> {{ allocation.completedServiceTotalTime}} </p>
+      <p class="card-text mt-4 ms-4"><b>Dirección del servicio:</b> {{ allocation.serviceAddress}}</p>
+      <p class="card-text mt-4 ms-4"><b>Status del servicio:</b> {{ allocation.serviceStatus}}</p>
+      <p class="card-text mt-4 ms-4"><b>Rating:</b> {{ allocation.rating}} </p>
+      <p class="card-text mt-4 ms-4 mb-5"><b>Costo:</b> {{ allocation.cost}} </p>
 
       <!-- <div class="d-flex flex-row">
         <a href="#" class="btn btn-primary mt-5" style="margin-left: 35%;">Confirmar</a>
