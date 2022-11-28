@@ -4,17 +4,19 @@
   <div class="card" style="width: 50rem;">
     <div class="card-body">
       <h5 class="card-title text-center" style="font-size: 3vw">Servicio a contratar</h5>
-      <p class="card-text mt-5 ms-4">Nombre del servicio: </p>
-      <p class="card-text mt-4 ms-4">Fecha de confirmación: </p>
-      <p class="card-text mt-4 ms-4">Duración del servicio: </p>
-      <p class="card-text mt-4 ms-4">Dirección del servicio: </p>
-      <p class="card-text mt-4 ms-4">Status del servicio</p>
-      <p class="card-text mt-4 ms-4 mb-5">Costo: </p>
+      <p class="card-text mt-5 ms-4">Nombre del servicio: {{allocation.serviceName}} </p>
+      <p class="card-text mt-5 ms-4">Nombre del empleado: {{2+3}} </p>
+      <p class="card-text mt-4 ms-4">Fecha de confirmación: {{allocation.confirmedServiceDate}} </p>
+      <p class="card-text mt-4 ms-4">Duración del servicio:{{allocation.completedServiceTotalTime}} </p>
+      <p class="card-text mt-4 ms-4">Dirección del servicio: {{allocation.serviceAddress}}</p>
+      <p class="card-text mt-4 ms-4">Status del servicio: {{allocation.serviceStatus}}</p>
+      <p class="card-text mt-4 ms-4">Rating: {{allocation.rating}} </p>
+      <p class="card-text mt-4 ms-4 mb-5">Costo:{{allocation.cost}} </p>
 
-      <div class="d-flex flex-row">
+      <!-- <div class="d-flex flex-row">
         <a href="#" class="btn btn-primary mt-5" style="margin-left: 35%;">Confirmar</a>
         <a href="#" class="btn btn-danger mt-5" style="margin-left: 5%;">Rechazar</a>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

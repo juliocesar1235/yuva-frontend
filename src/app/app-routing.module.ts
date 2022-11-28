@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'profile/contractor/:id', component: ContractorProfileComponent },
   { path: 'profile/employee/:id', component: EmployeeProfileComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'confirmService', component: VistaServicioContratarComponent },
+  { path: 'confirmService/:id', component: VistaServicioContratarComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'prefix' }
 ];
