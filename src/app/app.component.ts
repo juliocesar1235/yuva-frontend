@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ServiceListService } from './services/service-list.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { ServiceListService } from './services/service-list.service';
 export class AppComponent {
   title = 'yuva-frontend';
 
-  constructor(){
+  constructor() {
 
   }
 }
