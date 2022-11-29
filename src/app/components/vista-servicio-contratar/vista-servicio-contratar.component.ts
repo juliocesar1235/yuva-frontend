@@ -24,12 +24,13 @@ export class VistaServicioContratarComponent implements OnInit {
         //alert(JSON.stringify(response))
         this.allocation = response
 
-        this.http
-          .get('http://localhost:3000/yuva-api/users/' + this.allocation.confirmedEmployeeId)
-          .subscribe((response) => {
-            //alert(JSON.stringify(response))
-            this.employee = response
-          })
+        if (this.allocation.confirmedEmployeeId)
+          this.http
+            .get('http://localhost:3000/yuva-api/users/' + this.allocation.confirmedEmployeeId)
+            .subscribe((response) => {
+              //alert(JSON.stringify(response))
+              this.employee = response
+            })
 
       }
       )
