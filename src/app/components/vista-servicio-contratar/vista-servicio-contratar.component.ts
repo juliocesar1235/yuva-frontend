@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './vista-servicio-contratar.component.html',
   styleUrls: ['./vista-servicio-contratar.component.scss']
 })
-export class VistaServicioContratarComponent implements OnInit {
+export class AllocationComponent implements OnInit {
 
   allocation: any;
   employee: any;

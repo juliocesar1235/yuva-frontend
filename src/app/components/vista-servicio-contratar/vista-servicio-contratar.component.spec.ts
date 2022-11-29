@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VistaServicioContratarComponent } from './vista-servicio-contratar.component';
+import { AllocationComponent } from './vista-servicio-contratar.component';
 
-describe('VistaServicioContratarComponent', () => {
-  let component: VistaServicioContratarComponent;
-  let fixture: ComponentFixture<VistaServicioContratarComponent>;
+describe('AllocationComponent', () => {
+  let component: AllocationComponent;
+  let fixture: ComponentFixture<AllocationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VistaServicioContratarComponent ]
+      declarations: [AllocationComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(VistaServicioContratarComponent);
+    fixture = TestBed.createComponent(AllocationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
