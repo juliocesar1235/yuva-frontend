@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-vista-servicio-contratar',
-  templateUrl: './vista-servicio-contratar.component.html',
-  styleUrls: ['./vista-servicio-contratar.component.scss']
+  selector: 'app-allocation',
+  templateUrl: './allocation.html',
+  styleUrls: ['./allocation.scss']
 })
 export class AllocationComponent implements OnInit {
 

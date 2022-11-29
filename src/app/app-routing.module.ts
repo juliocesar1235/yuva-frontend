@@ -10,7 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { SignupEmployeeComponent } from './components/signup-employee/signup-employee.component';
 import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
 import { LoginComponent } from './components/login/login.component';
-import { AllocationComponent } from './components/vista-servicio-contratar/vista-servicio-contratar.component';
+import { AllocationComponent } from './components/allocation/allocation';
 
 const routes: Routes = [
   { path: 'service-detail', component: ServiceDetailComponent },

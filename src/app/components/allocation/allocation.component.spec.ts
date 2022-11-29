@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AllocationComponent } from './vista-servicio-contratar.component';
+import { AllocationComponent } from './allocation';
 
 describe('AllocationComponent', () => {
   let component: AllocationComponent;
