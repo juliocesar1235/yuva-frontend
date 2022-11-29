@@ -4,8 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-allocation',
-  templateUrl: './allocation.html',
-  styleUrls: ['./allocation.scss']
+  templateUrl: './allocation.component.html',
+  styleUrls: ['./allocation.component.scss']
 })
 export class AllocationComponent implements OnInit {
 
