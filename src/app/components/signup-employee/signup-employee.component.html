@@ -10,16 +10,6 @@
 
               <form #employeeForm="ngForm" (ngSubmit)="getUserFormData(employeeForm.value)">
 
-                <div class="form-outline mb-4">
-                  <label class="form-label">Primer nombre*</label>
-                  <input type="text" ngModel name= "firstName" class="form-control form-control-lg" placeholder="Ingresa tu nombre" />
-                </div>
-
-                <div class="form-outline mb-4">
-                  <label class="form-label">Primer Apellido*</label>
-                  <input type="text" ngModel name= "lastName" class="form-control form-control-lg" placeholder="Ingresa tu nombre" />
-                </div>
-
                 <div class="col-12">
                   <label class="form-label">Fecha de nacimiento*</label>
                   <div class="input-group mb-4">

@@ -17,7 +17,7 @@ export class EmployeeProfileComponent implements OnInit {
 
   usersInfo = userKeys
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {
+  constructor(private http: HttpClient, private route: ActivatedRoute, public activatedRoute: ActivatedRoute) {
 
 
 
@@ -46,7 +46,7 @@ export class EmployeeProfileComponent implements OnInit {
       .get("http://localhost:3000/yuva-api/services/" + this.user.serviceId)
       .subscribe((response) => {
         console.log("got service:", response)
-        this.service = response
+        this.service = [response]
 
       })
 

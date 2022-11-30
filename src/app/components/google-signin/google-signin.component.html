@@ -13,15 +13,16 @@
           <div class="card-body p-5">
 
             <h3 class="mb-2 text-left fweigt">Bienvenido a <span class="b-blue">YU</span>
+
               <span class="b-yellow">VA</span>
             </h3>
-            <h2 class="mb-5 text-left fweigtsub">Elige tu tipo de usario</h2>
+            <!-- <h3>{{tipouser}}</h3> -->
+            <h2 class="mb-5 text-left fweigtsub">Inicia Sesión</h2>
             <div class="text-center mb-3">
-              <button type="button" class="btn btn-primary google_log mb-5" (click)="loginWithGoogleYuvero()" >Yuvero</button>
-              
+              <!-- <button type="button" name="employee" class="btn btn-primary google_log mb-5" " >Yuvero</button>
               <br>
-              <button  type="button" class="btn btn-primary google_log" (click)="loginWithGoogleCliente()" >Contratista</button>
-              <!-- <asl-google-signin-button text="signin_with" #clientebtn type='standard' size='medium' data-text="Cliente"  >Cliente</asl-google-signin-button> -->
+              <button type="button" name="contractor" class="btn btn-primary google_log mb-5" (click)="signInCliente()" >Cliente</button> -->
+              <asl-google-signin-button (click)="loginWithGoogle()" type='standard' size='medium' logo_alignment="center">Yuvero</asl-google-signin-button>
             </div>
           </div>
         </div>
@@ -30,4 +31,4 @@
   </div>
 </div>
 
-<app-footer-for-register></app-footer-for-register>
+<<app-footer-for-register></app-footer-for-register>>

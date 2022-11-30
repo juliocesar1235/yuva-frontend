@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { SignupContractorService } from '../../services/signup-contractor.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IUserRes } from '../../interfaces/user'
 
 interface ContractorI{
-  firstName: string;
-  lastName: string;
-  email: string;
   phoneNumber: string;
-  dateOfBirth: string;
-  avatar: string;
+  dateOfBirth: Date;
   address: string;
   zipcode: string;
   city: string;
-  country: string;
-  userType: string;
 }
+
+// interface IuserRes{
+//   acknowledged: boolean;
+//   insertedId: string;
+// }
 
 @Component({
   selector: 'app-signup-contractor',
@@ -22,32 +23,47 @@ interface ContractorI{
   styleUrls: ['./signup-contractor.component.scss']
 })
 export class SignupContractorComponent implements OnInit {
+  userID!:string;
+  // userData!:object;
+  userResponse!:IUserRes;
 
-  constructor(private signupcontractorservices:SignupContractorService) { 
+
+  // public userData: Array<any> = [];
+
+  constructor(private signupcontractorservices:SignupContractorService, public activatedRoute: ActivatedRoute, private router: Router) { 
   }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe((params: any) => {
+      console.log("PARAMMMMSSSS", JSON.stringify(params.data))
+      this.userID = params.data
+    })
+
+    // this.signupcontractorservices.getServices().subscribe((resp: any)=>{
+    //   this.userData = resp;
+    // })
   }
   getUserFormData(data:{firstName: string, lastName: string, dob: NgbDate, serviceCategory: string, address: string, city: string, zipcode: string, phoneNumber: string}){
 
-    let newData:ContractorI = { firstName: data.firstName,
-      lastName: data.lastName,
-      email: "fea@gmail.com",
+    let newData:ContractorI = { 
       phoneNumber: data.phoneNumber,
-      dateOfBirth: new Date(data.dob.year, data.dob.month - 1, data.dob.day).toISOString(),
-      avatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FPancho_Villa&psig=AOvVaw0O6piA2d_Psypb5HjvHrNx&ust=1665694588842000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKDCm4TK2_oCFQAAAAAdAAAAABAD",
+      dateOfBirth: new Date(data.dob.year, data.dob.month - 1, data.dob.day),
       address: data.address,
       zipcode: data.zipcode,
-      city: data.city,
-      country: "Mexico",
-      userType: "contractor"
+      city: data.city
     }
-
-    console.log(newData)
-
-    this.signupcontractorservices.serveUser(newData).subscribe((result:any)=>{
-      console.warn(result)
-    })
+    console.log("AAAAAAAA", this.userID)
+    this.signupcontractorservices.updateUser(this.userID, newData).then((result:any) =>{
+      // const indexToUpdate = 
+      // if(indexToUpdate > -1){
+      //   this.userData[indexToUpdate] = newData;
+      // }
+      // console.log(result)
+      // this.router.navigate(['employee/signup'], {queryParams:{data: newData.email}})
+      this.userResponse = result
+      console.log("cosaaaaaaaaaaaaaaa ", 'profile/contractor/' + this.userResponse)
+      this.router.navigate(['/profile/contractor/' + this.userResponse], {queryParams:{data: this.userResponse}})
+    }) 
   }
 
 }
