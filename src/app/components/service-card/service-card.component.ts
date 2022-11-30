@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-service-card',
@@ -7,34 +9,28 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ServiceCardComponent implements OnInit {
   @Input() service: any;
-
+  @Output() public favoriteEvent: EventEmitter <any> = new EventEmitter();
 
   isFavorite: boolean = false
+ 
 
-  constructor(
-  ) {
-
+  constructor() { 
+    
   }
+
 
   
 
   clickFavorite() {
     console.log(this)
     this.isFavorite = !this.isFavorite;
+    this.favoriteEvent.emit([this.isFavorite, this.service])
 
-    if (this.isFavorite) {
-
-      //agregar a la lista de favoritos
-
-    }
-    else {
-
-    }
   }
 
 
 
   ngOnInit(): void {
-
+   
   }
 }
