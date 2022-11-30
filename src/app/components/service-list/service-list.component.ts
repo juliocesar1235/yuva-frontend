@@ -45,19 +45,24 @@ export class ServiceListComponent implements OnInit {
 
     const [isFavorite, service] = event
     // si es favorito ir al arreglo y asegurarnos que esté
+    let set = new Set(this.user.favoriteServices)
     if(isFavorite){
-      2
+      set.add(service._id)      
     } else {
-      // 
+      
+      set.delete(service._id)
+
     }
 // lUgo hacer el put del usuario actualizado
+    this.user.favoriteServices = [...set] 
+    this.http.put('http://localhost:3000/yuva-api/users/' + this.user._id,{favoriteServices:this.user.favoriteServices})
   }
 
   loadUser(){
     this.loginS.serveUser(this.socialUser.email).subscribe((response) => {this.user = response
     console.log(this.user, "enontrado!")
-    this.user.favoriteServices??=["63466d59f5cea1401ec15dbc"]
-    console.log(this.user.favoriteServices.includes("63466d59f5cea1401ec15dbc")," servicios favoritos")
+    this.user.favoriteServices??=[]
+    // console.log(this.user.favoriteServices.includes("63466d59f5cea1401ec15dbc")," servicios favoritos")
     })
     
     // // this.http
