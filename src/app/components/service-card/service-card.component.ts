@@ -16,16 +16,23 @@ export class ServiceCardComponent implements OnInit {
 
   }
 
-
-
-
-
-
+  
 
   clickFavorite() {
     console.log(this)
     this.isFavorite = !this.isFavorite;
+
+    if (this.isFavorite) {
+
+      //agregar a la lista de favoritos
+
+    }
+    else {
+
+    }
   }
+
+
 
   ngOnInit(): void {
 
