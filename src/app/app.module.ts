@@ -31,6 +31,7 @@ import {
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { GoogleSigninComponent } from './components/google-signin/google-signin.component';
 import { environment } from '../environments/environment';
+import { InvitationComponent } from './components/invitation/invitation.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { environment } from '../environments/environment';
     SignupEmployeeComponent,
     SignupContractorComponent,
     LoginComponent,
-    GoogleSigninComponent
+    GoogleSigninComponent,
+    InvitationComponent
   ],
   imports: [
     BrowserModule,
