@@ -54,11 +54,18 @@ export class ServiceListComponent implements OnInit {
   }
 
   loadUser(){
-    this.http
-    .get('http://localhost:3000/yuva-api/users/' + this.socialUser.id)
-    .subscribe((response) => {
-      this.user = response
+    this.loginS.serveUser(this.socialUser.email).subscribe((response) => {this.user = response
+    console.log(this.user, "enontrado!")
+    this.user.favoriteServices??=["63466d59f5cea1401ec15dbc"]
+    console.log(this.user.favoriteServices.includes("63466d59f5cea1401ec15dbc")," servicios favoritos")
     })
+    
+    // // this.http
+    // // .get('http://localhost:3000/yuva-api/users/' + this.socialUser.id)
+    // // .subscribe((response) => {
+    // //   this.user = response
+    // //   console.log("servicelistuserloaded")
+    // })
   }
 
   ngOnInit(): void {
@@ -67,6 +74,7 @@ export class ServiceListComponent implements OnInit {
       this.socialUser = user;
       //637ae8121e9375a11cd42ea6
       this.isLoggedin = (user != null);
+      this.loadUser()
 
       // this.loginS.serveUser(user.email).subscribe((result: any)=>{
 
@@ -80,7 +88,7 @@ export class ServiceListComponent implements OnInit {
 
       // this.user
       console.log(this.socialUser)
-   
+      console.log(this.services)
     });
   }
 

@@ -10,8 +10,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ServiceCardComponent implements OnInit {
   @Input() service: any;
   @Output() public favoriteEvent: EventEmitter <any> = new EventEmitter();
-
-  isFavorite: boolean = false
+  @Input() isLogedIn: boolean = false;
+ 
+  @Input() isFavorite: boolean = false
  
 
   constructor() { 
@@ -31,6 +32,7 @@ export class ServiceCardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(this.service._id, "IDDDDDD")
    
   }
 }

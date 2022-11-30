@@ -2,7 +2,7 @@
 <div class="container align-items-center">
   <div class="row gutters-sm">
     <div class="card mt-5 mx-auto" style="max-width: 700px;" *ngFor="let service of services">
-      <app-service-card (favoriteEvent)="favoriteEventListener($event)" [service]="service"></app-service-card>
+      <app-service-card [isFavorite]="user.favoriteServices.includes(service._id)" [isLogedIn]="!!user" (favoriteEvent)="favoriteEventListener($event)" [service]="service"></app-service-card>
     </div>
   </div>
 </div>
