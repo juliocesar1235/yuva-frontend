@@ -6,24 +6,25 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./service-card.component.scss']
 })
 export class ServiceCardComponent implements OnInit {
-  @Input() serviceList: any;
+  @Input() service: any;
 
-  color: any;
-  isFavorite: any;
-  
-  constructor() { 
-      
-  this.color = 'lightgrey'
-  this.isFavorite = false;
+
+  isFavorite: boolean = false
+
+  constructor(
+  ) {
 
   }
 
-  
-   
-  clickFavorite(){
-    console.log("en la funcion click")
+
+
+
+
+
+
+  clickFavorite() {
+    console.log(this)
     this.isFavorite = !this.isFavorite;
-    this.color = this.isFavorite?'blue':'lightgrey'
   }
 
   ngOnInit(): void {
