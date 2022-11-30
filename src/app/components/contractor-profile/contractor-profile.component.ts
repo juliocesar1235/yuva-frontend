@@ -13,7 +13,7 @@ export class ContractorProfileComponent implements OnInit {
   services: any;
   usersInfo = userKeys
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute, public activatedRoute: ActivatedRoute) { }
 
   loadUser() {
     console.log("getting user")

@@ -26,6 +26,14 @@ import { FullCalendarModule } from '@fullcalendar/angular'; // must go before pl
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+import { ReactiveFormsModule } from '@angular/forms';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { GoogleSigninComponent } from './components/google-signin/google-signin.component';
+import { environment } from '../environments/environment';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -50,7 +58,8 @@ FullCalendarModule.registerPlugins([
     FooterForRegisterComponent,
     SignupEmployeeComponent,
     SignupContractorComponent,
-    LoginComponent
+    LoginComponent,
+    GoogleSigninComponent
   ],
   imports: [
     BrowserModule,
@@ -60,8 +69,22 @@ FullCalendarModule.registerPlugins([
     CommonModule,
     FormsModule,
     FullCalendarModule
+    ReactiveFormsModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [{
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider(environment.googleProvider),
+        },
+      ],
+    } as SocialAuthServiceConfig,
+  },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
