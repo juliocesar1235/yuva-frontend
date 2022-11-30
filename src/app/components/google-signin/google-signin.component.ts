@@ -6,8 +6,9 @@ import {
   SocialUser,
 } from '@abacritt/angularx-social-login';
 import { ActivatedRoute, Router } from '@angular/router';
-import {GoogleSigninService } from '../../services/google-signin.service';
-import { IUserRes } from '../../interfaces/user';
+// import {GoogleSigninService } from '../../services/google-signin.service';
+import { GoogleSigninService } from 'src/app/services/google-signin.service';
+import { IUserRes } from 'src/app/interfaces/user';
 
 interface User{
   firstName: string;
