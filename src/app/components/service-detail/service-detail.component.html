@@ -1,33 +1,34 @@
 <app-header></app-header>
 <div class="container mt-5 lg" id="container-white">
-  <h2 class="mt-6 mb-2"> Servicio de limpieza</h2> <!--Codigo para que diga la cetegoria que es-->
+  <h2 class="mt-6 mb-2"> Servicio de limpieza</h2>
+  <!--Codigo para que diga la cetegoria que es-->
   <div class="row">
-    
+
     <div class=" col-sm-6 center-properties pos-1 mr-2">
-       
+
       <div class="card mb-3 border-0">
         <img class="card-img-top img-fluid" src="../../../assets/limpieza.jpg" alt="Card image cap">
-          <h5 class="card-title mt-2 mb-0">Descripcíon</h5>
-          <p class="card-text mt-3">Servicio especializado en limpieza residencial de forma segura. </p>
-          <p class="card-text mt-1"><b>Incluye</b></p>
-          <ol class="card-text mt-1 mb-0">- Barrida</ol>
-          <ol class="card-text mb-0">- Trapeada</ol>
-          <ol class="card-text mb-0">- Baños</ol>
-          <ol class="card-text mb-4">- Cocina</ol>
-          <p class="card-text mt-1"><b>NO Incluye</b></p>
-          <ol class="card-text mt-1 mb-5">- Material de trabajo</ol>
+        <h5 class="card-title mt-2 mb-0">Descripcíon</h5>
+        <p class="card-text mt-3">Servicio especializado en limpieza residencial de forma segura. </p>
+        <p class="card-text mt-1"><b>Incluye</b></p>
+        <ol class="card-text mt-1 mb-0">- Barrida</ol>
+        <ol class="card-text mb-0">- Trapeada</ol>
+        <ol class="card-text mb-0">- Baños</ol>
+        <ol class="card-text mb-4">- Cocina</ol>
+        <p class="card-text mt-1"><b>NO Incluye</b></p>
+        <ol class="card-text mt-1 mb-5">- Material de trabajo</ol>
 
 
 
-          
+
         <div class="row">
           <div class="col-sm-6">
-            
+
             <p class="card-text heading">Duración promedio:</p>
             <p class="card-text content tiempo">2-3hr</p>
-              
+
           </div>
-          
+
           <div class="col-sm-6">
             <p class="card-text heading">Calidad garantizada</p>
             <img class=" content" height="20px" src="../../../assets/garantia.jfif" alt="Card image cap">
@@ -36,10 +37,10 @@
 
         <div class="row d-flex justify-content-end">
           <div class="col-sm-6 text-right">
-            
+
             <p class="card-text heading">Costo:</p>
             <p class="card-text content costo">300MX</p>
-              
+
           </div>
         </div>
 
@@ -48,6 +49,7 @@
 
     <div class="col-sm-6 center-properties pos-2">
       <h5 class="card-title pt-0 mt-0">Selecciona el horario de tu servicio </h5>
+      <full-calendar [options]="calendarOptions"></full-calendar>
     </div>
 
   </div>
