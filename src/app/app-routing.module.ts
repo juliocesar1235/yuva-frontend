@@ -10,13 +10,14 @@ import { RegisterComponent } from './components/register/register.component';
 import { SignupEmployeeComponent } from './components/signup-employee/signup-employee.component';
 import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
 import { LoginComponent } from './components/login/login.component';
+import { AllocationComponent } from './components/allocation/allocation.component';
 import { GoogleSigninComponent } from './components/google-signin/google-signin.component';
 import { InvitationComponent } from './components/invitation/invitation.component';
 
 const routes: Routes = [
   { path: 'service-detail', component: ServiceDetailComponent },
   { path: 'services', component: ServiceListComponent },
-  { path: 'profile/contractor/favorite', component: FavoriteServiceComponent },
+  { path: 'profile/contractor/:id/favorite', component: FavoriteServiceComponent },
   { path: 'employee/signup', component: SignupEmployeeComponent },
   { path: 'contractor/signup', component: SignupContractorComponent },
   { path: 'login', component: LoginComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'invitation/:id', component: InvitationComponent},
   { path: 'profile/employee/:id', component: EmployeeProfileComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'confirmService/:id', component: AllocationComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'prefix' }
 ];

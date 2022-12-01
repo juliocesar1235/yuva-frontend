@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,6 +21,7 @@ import { FooterForRegisterComponent } from './components/footer-for-register/foo
 import { SignupEmployeeComponent } from './components/signup-employee/signup-employee.component';
 import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
 import { LoginComponent } from './components/login/login.component';
+import { AllocationComponent } from './components/allocation/allocation.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
@@ -52,6 +52,7 @@ import { InvitationComponent } from './components/invitation/invitation.componen
     SignupEmployeeComponent,
     SignupContractorComponent,
     LoginComponent,
+    AllocationComponent,
     GoogleSigninComponent,
     InvitationComponent
   ],
@@ -77,7 +78,7 @@ import { InvitationComponent } from './components/invitation/invitation.componen
       ],
     } as SocialAuthServiceConfig,
   },
-],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

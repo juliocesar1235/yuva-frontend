@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="col d-flex justify-content-center mt-5" >
+  <div class="card" style="width: 50rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center" style="font-size: 3vw">Servicio a contratar</h5>
+      <p class="card-text mt-5 ms-4"><b>Nombre del servicio:</b> {{ allocation.serviceName}} </p>
+      <p class="card-text mt-4 ms-4" *ngIf="employee"><b>Nombre del empleado:</b> {{ employee.firstName}} {{employee.lastName}}</p>
+      <p class="card-text mt-4 ms-4" *ngIf="!employee"><b>Nombre del empleado:</b> Buscando empleado...</p>
+      <p class="card-text mt-4 ms-4"><b>Fecha de confirmación:</b> {{ allocation.confirmedServiceDate}} </p>
+      <p class="card-text mt-4 ms-4"><b>Duración del servicio:</b> {{ allocation.completedServiceTotalTime}} </p>
+      <p class="card-text mt-4 ms-4"><b>Dirección del servicio:</b> {{ allocation.serviceAddress}}</p>
+      <p class="card-text mt-4 ms-4"><b>Status del servicio:</b> {{ allocation.serviceStatus}}</p>
+      <p class="card-text mt-4 ms-4"><b>Rating:</b> {{ allocation.rating}} </p>
+      <p class="card-text mt-4 ms-4 mb-5"><b>Costo:</b> {{ allocation.cost}} </p>
+
+      <!-- <div class="d-flex flex-row">
+        <a href="#" class="btn btn-primary mt-5" style="margin-left: 35%;">Confirmar</a>
+        <a href="#" class="btn btn-danger mt-5" style="margin-left: 5%;">Rechazar</a>
+      </div> -->
+    </div>
+  </div>
+</div>
+  
+<app-footer></app-footer>
+

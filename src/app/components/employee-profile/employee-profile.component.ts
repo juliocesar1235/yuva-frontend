@@ -18,9 +18,6 @@ export class EmployeeProfileComponent implements OnInit {
   usersInfo = userKeys
 
   constructor(private http: HttpClient, private route: ActivatedRoute, public activatedRoute: ActivatedRoute) {
-
-
-
   }
 
   loadUser() {
@@ -31,7 +28,6 @@ export class EmployeeProfileComponent implements OnInit {
         //alert(JSON.stringify(response))
         this.user = response
         this.user["formattedDOB"] = new Date(this.user["dateOfBirth"]).toLocaleDateString()
-
 
         this.loadService()
 
