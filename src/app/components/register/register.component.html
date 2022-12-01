@@ -15,24 +15,28 @@
             <h3 class="mb-2 text-left fweigt">Bienvenido a <span class="b-blue">YU</span>
               <span class="b-yellow">VA</span>
             </h3>
-            <h2 class="mb-5 text-left fweigtsub">Elige tu tipo de usario</h2>
-            <form #contractorForm = "ngForm" (ngSubmit)="getUserFormData(contractorForm.value)">
+            <h2 class="mb-5 text-left fweigtsub">Ingresa tus datos</h2>
+            <form #contractorForm="ngForm" (ngSubmit)="getUserFormData(contractorForm.value)">
               <div class="form-outline mb-4">
                 <label class="form-label">Primer nombre</label>
-                <input type="text" name="firstName" ngModel class="form-control form-control-lg" placeholder="Ingresa tu nombre" />
+                <input type="text" name="firstName" ngModel class="form-control form-control-lg"
+                  placeholder="Ingresa tu nombre" />
               </div>
               <div class="form-outline mb-4">
                 <label class="form-label">Apellido</label>
-                <input type="text" name="lastName" ngModel class="form-control form-control-lg" placeholder="Ingresa tu apellido" />
+                <input type="text" name="lastName" ngModel class="form-control form-control-lg"
+                  placeholder="Ingresa tu apellido" />
               </div>
               <div class="form-outline mb-4">
                 <label class="form-label">Email</label>
-                <input type="text" name="email" ngModel class="form-control form-control-lg" placeholder="Ingresa tu correo" />
+                <input type="text" name="email" ngModel class="form-control form-control-lg"
+                  placeholder="Ingresa tu correo" />
               </div>
 
               <div class="form-outline mb-4">
                 <label class="form-label">Password</label>
-                <input type="text" name="password" ngModel class="form-control form-control-lg" placeholder="Ingresa tu contraseña" />
+                <input type="text" name="password" ngModel class="form-control form-control-lg"
+                  placeholder="Ingresa tu contraseña" />
               </div>
 
               <!-- <div class="form-outline mb-4">
@@ -43,15 +47,15 @@
                 </select>
               </div> -->
               <div class="form-outline mb-4">
-                  <label class="form-label">Tipo de usuario*</label>
-                  <select class="form-select" ngModel name="userT">
-                    <option>contractor</option>
-                    <option>employee</option>
-                  </select>
-                </div>
+                <label class="form-label">Tipo de usuario*</label>
+                <select class="form-select" ngModel name="userT">
+                  <option>contractor</option>
+                  <option>employee</option>
+                </select>
+              </div>
               <div class="d-flex justify-content-center">
                 <button type="submit"
-                  class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body mt-2">Iniciar sesion</button>
+                  class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body mt-2">Registrarse</button>
               </div>
 
             </form>

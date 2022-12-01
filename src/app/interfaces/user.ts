@@ -1,4 +1,29 @@
-export interface IUserRes{
+export interface IUserRes {
   acknowledged: boolean;
   insertedId: string;
+}
+
+export interface IUser {
+  firstName: string;
+  lastName: string;
+  email: string;
+  avatar: string;
+  firebaseID: string;
+  phoneNumber?: string;
+  dateOfBirth?: Date;
+  address?: string;
+  zipcode?: string;
+  city?: string;
+  country?: string;
+  userType?: string;
+  serviceCategory?: string;
+  serviceId?: any;
+  workScheduleAvailable?: Array<Date>;
+  workScheduleTaken?: Array<Date>;
+  bankName?: string;
+  bankAccount?: string;
+  rating?: number;
+  idProvider?: string;
+  favoriteServices?: Array<any>;
+  id?: any;
 }

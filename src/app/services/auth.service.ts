@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import {
   Auth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  User,
 } from '@angular/fire/auth';
 import { LoginData } from '../interfaces/login-data';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -11,6 +12,8 @@ import { Router } from '@angular/router';
 import * as auth from 'firebase/auth';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { GoogleSigninService } from './google-signin.service';
+import { IUser } from '../interfaces/user';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +22,15 @@ import { GoogleSigninService } from './google-signin.service';
 export class AuthService {
   userData: any; // Save logged in user data
   userType!: any;
-  constructor( public afAuth: AngularFireAuth, public router: Router, private http: HttpClient, private signInS: GoogleSigninService) {
+
+  constructor(
+    public afAuth: AngularFireAuth,
+    public router: Router,
+    private http: HttpClient,
+    private signInS: GoogleSigninService,
+    private userService: UserService,
+    public ngZone: NgZone
+  ) {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
@@ -33,54 +44,56 @@ export class AuthService {
   }
 
   SignIn(email: string, password: string) {
-    return this.afAuth.setPersistence('session').then(() => {
+    return this.afAuth.setPersistence('local').then(() => {
       this.afAuth.signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        // this.SetUserData(result.user);
-        console.log("RESULTADO LOG INNNN", result.user?.uid)
-        this.afAuth.authState.subscribe((user) => {
-          // if (user) {
-          //   this.userType = this.getUserType(user);
-          //   this.router.navigate(['dashboard']);
-          // }
+        .then((result) => {
+          // this.SaveUserWithFirebase(result.user);
+          console.log("login data", result.user)
+          this.afAuth.authState.subscribe((user) => {
+            // if (user) {
+            //   this.userType = this.getUserType(user);
+            //   this.router.navigate(['dashboard']);
+            // }
+          });
+        })
+        .catch((error) => {
+          window.alert(error.message);
         });
-      })
-      .catch((error) => {
-        window.alert(error.message);
-      });
     })
-      
+
   }
 
   SignUp(email: string, password: string, userT: string, firstName: string, lastName: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
-        up and returns promise */
-        // this.SendVerificationMail();
-        // this.SetUserData(result.user);
-
-        if(userT == "employee"){
-          this.signInS.serveUser({firstName: firstName, lastName: lastName, email: result.user?.email, firebaseID: result.user?.uid, userType: userT}).subscribe((response) => {
-            //alert(JSON.stringify(response))
-            localStorage.setItem("yuva", response.toString())
+        if (userT == "employee") {
+          this.userService.createUser({
+            firstName: firstName,
+            lastName: lastName,
+            email: result.user?.email,
+            firebaseID: result.user?.uid,
+            userType: userT
+          }).subscribe((response) => {
+            localStorage.setItem("yuvaId", response.toString())
             this.router.navigate(['/profile/employee/' + response.toString()])
           })
 
-          
-        }else{
-          this.signInS.serveUser({firstName: firstName, lastName: lastName, email: result.user?.email, firebaseID: result.user?.uid, userType: userT})
-          .subscribe((response) => {
-            //alert(JSON.stringify(response))
-            console.log("RESPONSE", response)
+
+        } else {
+          this.userService.createUser({
+            firstName: firstName,
+            lastName: lastName,
+            email: result.user?.email,
+            firebaseID: result.user?.uid,
+            userType: userT
+          }).subscribe((response) => {
+            console.log("response in auth service", response)
             localStorage.setItem("yuva", response.toString())
             this.router.navigate(['/profile/contractor/' + response.toString()])
           })
         }
-        localStorage.setItem("user", JSON.stringify(result.user))
-        console.log("AAAAA", localStorage)
-        // this.router.navigate(['home'])
+        localStorage.setItem("user", JSON.stringify(result.user));
       })
       .catch((error) => {
         window.alert(error.message);
@@ -120,12 +133,18 @@ export class AuthService {
 
   SignOut() {
     return this.afAuth.signOut().then(() => {
-      localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      localStorage.removeItem("user");
+      localStorage.removeItem("yuvaId");
+      console.log('signout');
+      // this.router.navigate(['sign-in']);
     });
   }
 
-  getUserType(user:any){
+  getUserByFirebaseId() {
+
+  }
+
+  getUserType(user: any) {
     let header = new HttpHeaders().set('Type-content', 'application/json')
 
     return this.http.get("http://localhost:3000/yuva-api/users/" + user.id, {

@@ -1,25 +1,25 @@
 <nav class="navbar navbar-expand-sm navbar-color">
-  <div class="container">
-      <a routerLink="/" class="navbar-brand d-flex justify-content-center">
-          <img src="../../../assets/LogoFinal.png" height="33">
-          <span>YU</span>
-          <span class="nav-yellow">VA</span>
-      </a>
-      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-nav">
-              <a routerLink="/home" class="nav-item nav-link">Inicio</a>
-              <a routerLink="/services" class="nav-item nav-link">Categorias</a>
-          </div>
-          <div *ngIf="!userAuthenticated" class="navbar-nav ms-auto">
-              <a routerLink="/register" class="nav-item nav-link nav-bold">Regístrate</a>
-              <a routerLink="/login" class="nav-item nav-link nav-bold">Iniciar sesión</a>
-          </div>
-          <div *ngIf="userAuthenticated" class="navbar-nav ms-auto">
-            <a routerLink="/register" class="nav-item nav-link nav-bold">Salir sesion</a>
+    <div class="container">
+        <a routerLink="/" class="navbar-brand d-flex justify-content-center">
+            <img src="../../../assets/LogoFinal.png" height="33">
+            <span>YU</span>
+            <span class="nav-yellow">VA</span>
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a routerLink="/home" class="nav-item nav-link">Inicio</a>
+                <a routerLink="/services" class="nav-item nav-link">Categorias</a>
+            </div>
+            <div *ngIf="!userAuthenticated" class="navbar-nav ms-auto">
+                <a routerLink="/register" class="nav-item nav-link nav-bold">Regístrate</a>
+                <a routerLink="/login" class="nav-item nav-link nav-bold">Iniciar sesión</a>
+            </div>
+            <div *ngIf="userAuthenticated" class="navbar-nav ms-auto">
+                <a routerLink="/login" (click)="signOut()" class="nav-item nav-link nav-bold">Salir sesion</a>
+            </div>
         </div>
-      </div>
-  </div>
+    </div>
 </nav>
