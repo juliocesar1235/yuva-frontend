@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions, DateSelectArg, EventClickArg, EventApi } from '@fullcalendar/angular'
 import { createEventId } from '../../event-utils';
-
+import { ServiceListService } from 'src/app/services/service-list.service';
 @Component({
   selector: 'app-service-detail',
   templateUrl: './service-detail.component.html',
   styleUrls: ['./service-detail.component.scss']
 })
 export class ServiceDetailComponent implements OnInit {
-
-  constructor() { }
+  serviced!: any;
+  constructor(private service: ServiceListService) { }
 
   dates: Array<string> = [];
 
@@ -22,6 +22,12 @@ export class ServiceDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.service.getserviceData(localStorage.getItem("serviceId")).subscribe((result)=>{
+      this.serviced = result;
+      console.log(result)
+      console.log(this.serviced)
+    })
+    
   }
 
   handleDateSelect(selectInfo: DateSelectArg) {
@@ -48,5 +54,9 @@ export class ServiceDetailComponent implements OnInit {
       clickInfo.event.remove();
     }
   }
+
+  // loadServiceData(){
+    
+  // }
 
 }

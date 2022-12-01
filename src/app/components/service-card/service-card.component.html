@@ -8,7 +8,7 @@
           <h4 class="card-title">{{service.name}}</h4>
           <p class="card-text lighter">{{service.desc}}</p>
 
-          <button class="btn btn-primary float-end ">Pedir servicio</button>
+          <button (click)="selectService(service._id)" class="btn btn-primary float-end" >Pedir servicio</button>
           <!-- <button class="btn btn float-end me-1">Estrella</button> -->
 
           <svg *ngIf="isLogedIn" (click)="clickFavorite() " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange"

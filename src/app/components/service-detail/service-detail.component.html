@@ -1,22 +1,22 @@
 <app-header></app-header>
 <div class="container mt-5 lg" id="container-white">
-  <h2 class="mt-6 mb-2"> Servicio de limpieza</h2>
+  <h2 class="mt-6 mb-2">{{serviced.name}}</h2>
   <!--Codigo para que diga la cetegoria que es-->
   <div class="row">
 
     <div class=" col-sm-6 center-properties pos-1 mr-2">
 
       <div class="card mb-3 border-0">
-        <img class="card-img-top img-fluid" src="../../../assets/limpieza.jpg" alt="Card image cap">
+        <img class="card-img-top img-fluid" src="{{serviced.media.serviceAvatar}}" alt="Card image cap">
         <h5 class="card-title mt-2 mb-0">Descripcíon</h5>
-        <p class="card-text mt-3">Servicio especializado en limpieza residencial de forma segura. </p>
-        <p class="card-text mt-1"><b>Incluye</b></p>
+        <p class="card-text mt-3">{{serviced.desc}}</p>
+        <!-- <p class="card-text mt-1"><b>Incluye</b></p>
         <ol class="card-text mt-1 mb-0">- Barrida</ol>
         <ol class="card-text mb-0">- Trapeada</ol>
         <ol class="card-text mb-0">- Baños</ol>
         <ol class="card-text mb-4">- Cocina</ol>
         <p class="card-text mt-1"><b>NO Incluye</b></p>
-        <ol class="card-text mt-1 mb-5">- Material de trabajo</ol>
+        <ol class="card-text mt-1 mb-5">- Material de trabajo</ol> -->
 
 
 
@@ -25,7 +25,7 @@
           <div class="col-sm-6">
 
             <p class="card-text heading">Duración promedio:</p>
-            <p class="card-text content tiempo">2-3hr</p>
+            <p class="card-text content tiempo">{{serviced.averageServiceTime}}hr</p>
 
           </div>
 
@@ -39,7 +39,7 @@
           <div class="col-sm-6 text-right">
 
             <p class="card-text heading">Costo:</p>
-            <p class="card-text content costo">300MX</p>
+            <p class="card-text content costo">{{serviced.cost}}MX</p>
 
           </div>
         </div>

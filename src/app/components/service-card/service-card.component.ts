@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-service-card',
@@ -15,7 +14,7 @@ export class ServiceCardComponent implements OnInit {
   @Input() isFavorite: boolean = false
  
 
-  constructor() { 
+  constructor(private router: Router) { 
     
   }
 
@@ -29,7 +28,12 @@ export class ServiceCardComponent implements OnInit {
 
   }
 
+  selectService(id:any){
+    localStorage.setItem("serviceId", id)
+    // let userId = localStorage.getItem("yuva");
 
+    this.router.navigate(['/service-detail'])
+  }
 
   ngOnInit(): void {
     console.log(this.service._id, "IDDDDDD")
