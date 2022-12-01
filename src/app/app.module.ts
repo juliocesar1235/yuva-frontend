@@ -31,6 +31,7 @@ import {
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { GoogleSigninComponent } from './components/google-signin/google-signin.component';
 import { environment } from '../environments/environment';
+import { InvitationComponent } from './components/invitation/invitation.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { environment } from '../environments/environment';
     SignupContractorComponent,
     LoginComponent,
     AllocationComponent,
-    GoogleSigninComponent
+    GoogleSigninComponent,
+    InvitationComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,7 @@ import { environment } from '../environments/environment';
       ],
     } as SocialAuthServiceConfig,
   },
-],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

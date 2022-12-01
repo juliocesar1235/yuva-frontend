@@ -12,6 +12,7 @@ import { SignupContractorComponent } from './components/signup-contractor/signup
 import { LoginComponent } from './components/login/login.component';
 import { AllocationComponent } from './components/allocation/allocation.component';
 import { GoogleSigninComponent } from './components/google-signin/google-signin.component';
+import { InvitationComponent } from './components/invitation/invitation.component';
 
 const routes: Routes = [
   { path: 'service-detail', component: ServiceDetailComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile/contractor/:id', component: ContractorProfileComponent },
   { path: 'googleSignIn', component: GoogleSigninComponent },
+  {path: 'invitation/:id', component: InvitationComponent},
   { path: 'profile/employee/:id', component: EmployeeProfileComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'confirmService/:id', component: AllocationComponent },
