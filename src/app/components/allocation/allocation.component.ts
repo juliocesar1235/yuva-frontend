@@ -38,9 +38,6 @@ export class AllocationComponent implements OnInit {
   }
 
 
-
-
-
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')
     this.loadAllocation()

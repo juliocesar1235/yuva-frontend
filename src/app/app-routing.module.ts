@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile/contractor/:id', component: ContractorProfileComponent },
   { path: 'googleSignIn', component: GoogleSigninComponent },
-  {path: 'invitation/:id', component: InvitationComponent},
+  { path: 'invitation/:id', component: InvitationComponent},
   { path: 'profile/employee/:id', component: EmployeeProfileComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'confirmService/:id', component: AllocationComponent },

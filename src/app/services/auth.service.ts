@@ -59,6 +59,8 @@ export class AuthService {
 
             this.logInS.serveUser(email).subscribe((nUser: any)=>{
             localStorage.setItem("yuva", nUser._id.toString())
+            localStorage.setItem("name", nUser.firstName)
+            localStorage.setItem("userT", nUser.userType)
               console.log("Usuario", nUser)
               if( nUser.userType == "employee"){
                 this.router.navigate(['/profile/employee/' + nUser._id], {queryParams:{data: nUser._id}})
@@ -89,6 +91,8 @@ export class AuthService {
             userType: userT
           }).subscribe((response) => {
             localStorage.setItem("yuva", response.toString())
+            localStorage.setItem("name", firstName)
+            localStorage.setItem("userT", userT)
             this.router.navigate(['employee/signup/' + response.toString()])
           })
 
@@ -146,8 +150,9 @@ export class AuthService {
 
   SignOut() {
     return this.afAuth.signOut().then(() => {
-      localStorage.removeItem("user");
-      localStorage.removeItem("yuva");
+      // localStorage.removeItem("user");
+      // localStorage.removeItem("yuva");
+      localStorage.clear()
       console.log('signout');
       // this.router.navigate(['sign-in']);
     });
