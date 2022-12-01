@@ -7,6 +7,8 @@ import {
 } from '@abacritt/angularx-social-login';
 import { DataShareService } from 'src/app/services/data-share.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { StringFormat } from '@angular/fire/compat/storage/interfaces';
 
 @Component({
   selector: 'app-register',
@@ -30,7 +32,8 @@ export class RegisterComponent implements OnInit {
     // private socialAuthService: SocialAuthService,
     private data: DataShareService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private auth: AuthService
   ) { 
     
   }
@@ -57,4 +60,7 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/googleSignIn'], {queryParams:{data: 'contractor'}})
   }
 
+  getUserFormData(data:{email:string, password: string, userT: string, firstName: string, lastName: string}){
+    this.auth.SignUp(data.email, data.password, data.userT, data.firstName, data.lastName)
+  }
 }

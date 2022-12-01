@@ -58,7 +58,7 @@ export class ContractorProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id')
+    this.id = localStorage.getItem("yuva")
     this.loadUser()
 
   }
