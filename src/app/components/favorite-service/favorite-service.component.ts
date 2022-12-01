@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ServiceListService } from 'src/app/services/service-list.service';
 
 @Component({
   selector: 'app-favorite-service',
@@ -14,6 +15,23 @@ export class FavoriteServiceComponent implements OnInit {
   services: any;
 
 
+  favoriteEventListener(event: any) {
+
+    const [isFavorite, service] = event
+    // si es favorito ir al arreglo y asegurarnos que esté
+    let set = new Set(this.user.favoriteServices)
+    if (isFavorite) {
+      set.add(service._id)
+    } else {
+
+      set.delete(service._id)
+
+    }
+    // lUgo hacer el put del usuario actualizado
+    this.user.favoriteServices = [...set]
+    this.http.put('http://localhost:3000/yuva-api/users/' + this.user._id, { favoriteServices: this.user.favoriteServices })
+  }
+
   loadUser() {
     console.log("getting user")
     this.http
@@ -24,25 +42,22 @@ export class FavoriteServiceComponent implements OnInit {
         this.user["formattedDOB"] = new Date(this.user["dateOfBirth"]).toLocaleDateString()
 
 
-        this.loadService()
 
       }
       )
 
   }
 
-  loadService() {
-    console.log("getting service,", this.user.serviceId)
-    this.http
-      .get("http://localhost:3000/yuva-api/services/" + this.user.serviceId)
-      .subscribe((response) => {
-        console.log("got service:", response)
-        this.services = [response]
 
-      })
-
+  constructor(private route: ActivatedRoute, private http: HttpClient, private servicelistservices: ServiceListService,
+  ) {
+    this.servicelistservices.getServices().subscribe((resp: any) => {
+      // console.log(resp)
+      this.services = resp.filter((service: any) => {
+        this.user.favoriteServices.includes(service._id)
+      });
+    })
   }
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
 

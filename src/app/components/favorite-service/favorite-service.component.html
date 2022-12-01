@@ -54,7 +54,8 @@
           <div class="card-body d-flex flex-column align-items-center p-5">
             <h2>Favoritos</h2>
 
-            <div class="container d-flex flex-column align-items-center mt-3" style="max-width: 600px;">
+            <!-- <div class="container d-flex flex-column align-items-center mt-3" style="max-width: 600px;">
+
               <h5>Placeholder title</h5>
               <img
                 src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
@@ -103,7 +104,14 @@
                 <button class="btn btn-primary mt-3 px-5 float-end " type="submit">Ver mas</button>
               </div>
               
+            </div> -->
+
+            <div class="card mt-5 mx-auto" style="max-width: 700px;" *ngFor="let service of services">
+              <app-service-card [isFavorite]="user.favoriteServices.includes(service._id)" [isLogedIn]="!!user"
+                (favoriteEvent)="favoriteEventListener($event)" [service]="service"></app-service-card>
             </div>
+
+
           </div>
         </div>
       </div>
