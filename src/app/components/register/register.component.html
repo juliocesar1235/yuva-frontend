@@ -16,13 +16,44 @@
               <span class="b-yellow">VA</span>
             </h3>
             <h2 class="mb-5 text-left fweigtsub">Elige tu tipo de usario</h2>
-            <div class="text-center mb-3">
+            <form #contractorForm = "ngForm" (ngSubmit)="getUserFormData(contractorForm.value)">
+              <div class="form-outline mb-4">
+                <label class="form-label">Email</label>
+                <input type="text" name="email" ngModel class="form-control form-control-lg" placeholder="Ingresa tu correo" />
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label">Password</label>
+                <input type="text" name="password" ngModel class="form-control form-control-lg" placeholder="Ingresa tu contraseña" />
+              </div>
+
+              <!-- <div class="form-outline mb-4">
+                <label class="form-label">Tipo de usuario*</label>
+                <select class="form-select" ngModel name="serviceCategory">
+                  <option>contractor</option>
+                  <option>employee</option>
+                </select>
+              </div> -->
+              <div class="form-outline mb-4">
+                  <label class="form-label">Tipo de usuario*</label>
+                  <select class="form-select" ngModel name="serviceCategory">
+                    <option>contractor</option>
+                    <option>employee</option>
+                  </select>
+                </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit"
+                  class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body mt-2">Iniciar sesion</button>
+              </div>
+
+            </form>
+            <!-- <div class="text-center mb-3">
               <button type="button" class="btn btn-primary google_log mb-5" (click)="loginWithGoogleYuvero()" >Yuvero</button>
               
               <br>
               <button  type="button" class="btn btn-primary google_log" (click)="loginWithGoogleCliente()" >Contratista</button>
               <!-- <asl-google-signin-button text="signin_with" #clientebtn type='standard' size='medium' data-text="Cliente"  >Cliente</asl-google-signin-button> -->
-            </div>
+            <!-- </div>  -->
           </div>
         </div>
       </div>
