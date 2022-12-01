@@ -34,9 +34,9 @@ export class SignupEmployeeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((params: any) => {
-      this.userID = params.data
-    })
+    // this.activatedRoute.queryParams.subscribe((params: any) => {
+    //   this.userID = params.data
+    // })
   }
   
   selectedService = '';
@@ -51,6 +51,7 @@ export class SignupEmployeeComponent implements OnInit {
 
   getUserFormData(data:{firstName: string, lastName: string, dob: NgbDate, serviceCategory: string, address: string, city: string, zipcode: string, phoneNumber: string}){
     
+    this.userID = localStorage.getItem("yuva")!;
     let newData:EmployeeI = {
       phoneNumber: data.phoneNumber,
       dateOfBirth: new Date(data.dob.year, data.dob.month - 1, data.dob.day),
@@ -65,7 +66,7 @@ export class SignupEmployeeComponent implements OnInit {
     
     this.signupemployeeservices.updateUser(this.userID, newData).then((result:any)=>{
       this.userResponse = result
-      this.router.navigate(['/profile/employee/' + this.userResponse], {queryParams:{data: this.userResponse}})
+      this.router.navigate(['/profile/employee/' + this.userID], {queryParams:{data: this.userID}})
     })
   }
 

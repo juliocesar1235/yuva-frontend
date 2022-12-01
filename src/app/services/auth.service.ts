@@ -14,6 +14,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { GoogleSigninService } from './google-signin.service';
 import { IUser } from '../interfaces/user';
 import { UserService } from './user.service';
+import { GoogleLoginService } from './google-login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,8 @@ export class AuthService {
     private http: HttpClient,
     private signInS: GoogleSigninService,
     private userService: UserService,
-    public ngZone: NgZone
+    public ngZone: NgZone,
+    public logInS: GoogleLoginService
   ) {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
@@ -54,6 +56,17 @@ export class AuthService {
             //   this.userType = this.getUserType(user);
             //   this.router.navigate(['dashboard']);
             // }
+
+            this.logInS.serveUser(email).subscribe((nUser: any)=>{
+            localStorage.setItem("yuva", nUser._id.toString())
+              console.log("Usuario", nUser)
+              if( nUser.userType == "employee"){
+                this.router.navigate(['/profile/employee/' + nUser._id], {queryParams:{data: nUser._id}})
+              }else{
+                this.router.navigate(['/profile/contractor/' + nUser._id], {queryParams:{data: nUser._id}})
+              }
+            });
+            
           });
         })
         .catch((error) => {
@@ -75,8 +88,8 @@ export class AuthService {
             firebaseID: result.user?.uid,
             userType: userT
           }).subscribe((response) => {
-            localStorage.setItem("yuvaId", response.toString())
-            this.router.navigate(['/profile/employee/' + response.toString()])
+            localStorage.setItem("yuva", response.toString())
+            this.router.navigate(['employee/signup/' + response.toString()])
           })
 
 
@@ -90,7 +103,7 @@ export class AuthService {
           }).subscribe((response) => {
             console.log("response in auth service", response)
             localStorage.setItem("yuva", response.toString())
-            this.router.navigate(['/profile/contractor/' + response.toString()])
+            this.router.navigate(['contractor/signup/' + response.toString()])
           })
         }
         localStorage.setItem("user", JSON.stringify(result.user));
@@ -134,7 +147,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem("user");
-      localStorage.removeItem("yuvaId");
+      localStorage.removeItem("yuva");
       console.log('signout');
       // this.router.navigate(['sign-in']);
     });
