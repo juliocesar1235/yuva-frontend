@@ -10,14 +10,16 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import * as auth from 'firebase/auth';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { GoogleSigninService } from './google-signin.service';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   userData: any; // Save logged in user data
   userType!: any;
-  constructor( public afAuth: AngularFireAuth, public router: Router, private http: HttpClient) {
+  constructor( public afAuth: AngularFireAuth, public router: Router, private http: HttpClient, private signInS: GoogleSigninService) {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
@@ -31,8 +33,8 @@ export class AuthService {
   }
 
   SignIn(email: string, password: string) {
-    return this.afAuth
-      .signInWithEmailAndPassword(email, password)
+    return this.afAuth.setPersistence('session').then(() => {
+      this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         // this.SetUserData(result.user);
         console.log("RESULTADO LOG INNNN", result.user?.uid)
@@ -46,9 +48,11 @@ export class AuthService {
       .catch((error) => {
         window.alert(error.message);
       });
+    })
+      
   }
 
-  SignUp(email: string, password: string) {
+  SignUp(email: string, password: string, userT: string, firstName: string, lastName: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -56,7 +60,27 @@ export class AuthService {
         up and returns promise */
         // this.SendVerificationMail();
         // this.SetUserData(result.user);
-        console.log("AAAAA", result)
+
+        if(userT == "employee"){
+          this.signInS.serveUser({firstName: firstName, lastName: lastName, email: result.user?.email, firebaseID: result.user?.uid, userType: userT}).subscribe((response) => {
+            //alert(JSON.stringify(response))
+            localStorage.setItem("yuva", response.toString())
+            this.router.navigate(['/profile/employee/' + response.toString()])
+          })
+
+          
+        }else{
+          this.signInS.serveUser({firstName: firstName, lastName: lastName, email: result.user?.email, firebaseID: result.user?.uid, userType: userT})
+          .subscribe((response) => {
+            //alert(JSON.stringify(response))
+            console.log("RESPONSE", response)
+            localStorage.setItem("yuva", response.toString())
+            this.router.navigate(['/profile/contractor/' + response.toString()])
+          })
+        }
+        localStorage.setItem("user", JSON.stringify(result.user))
+        console.log("AAAAA", localStorage)
+        // this.router.navigate(['home'])
       })
       .catch((error) => {
         window.alert(error.message);

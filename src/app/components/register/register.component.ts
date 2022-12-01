@@ -60,8 +60,7 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/googleSignIn'], {queryParams:{data: 'contractor'}})
   }
 
-  getUserFormData(data:{email:string, password: string, serviceCategory: string}){
-    this.auth.SignUp(data.email, data.password)
+  getUserFormData(data:{email:string, password: string, userT: string, firstName: string, lastName: string}){
+    this.auth.SignUp(data.email, data.password, data.userT, data.firstName, data.lastName)
   }
-
 }

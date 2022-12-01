@@ -13,10 +13,13 @@
               <a routerLink="/home" class="nav-item nav-link">Inicio</a>
               <a routerLink="/services" class="nav-item nav-link">Categorias</a>
           </div>
-          <div class="navbar-nav ms-auto">
+          <div *ngIf="!userAuthenticated" class="navbar-nav ms-auto">
               <a routerLink="/register" class="nav-item nav-link nav-bold">Regístrate</a>
               <a routerLink="/login" class="nav-item nav-link nav-bold">Iniciar sesión</a>
           </div>
+          <div *ngIf="userAuthenticated" class="navbar-nav ms-auto">
+            <a routerLink="/register" class="nav-item nav-link nav-bold">Salir sesion</a>
+        </div>
       </div>
   </div>
 </nav>
