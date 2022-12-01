@@ -11,6 +11,8 @@ export class ServiceDetailComponent implements OnInit {
 
   constructor() { }
 
+  dates: Array<string> = [];
+
   calendarOptions: CalendarOptions = {
     initialView: 'timeGridWeek',
     editable: true,
@@ -37,7 +39,8 @@ export class ServiceDetailComponent implements OnInit {
         allDay: selectInfo.allDay
       });
     }
-    console.log(calendarApi);
+    let convertDate = calendarApi.getDate()
+    this.dates.push(JSON.stringify(convertDate));
   }
 
   handleEventClick(clickInfo: EventClickArg) {

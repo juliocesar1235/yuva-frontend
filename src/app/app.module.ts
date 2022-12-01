@@ -68,7 +68,7 @@ FullCalendarModule.registerPlugins([
     HttpClientModule,
     CommonModule,
     FormsModule,
-    FullCalendarModule
+    FullCalendarModule,
     ReactiveFormsModule,
     SocialLoginModule
   ],
