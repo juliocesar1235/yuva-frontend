@@ -21,6 +21,7 @@ import { FooterForRegisterComponent } from './components/footer-for-register/foo
 import { SignupEmployeeComponent } from './components/signup-employee/signup-employee.component';
 import { SignupContractorComponent } from './components/signup-contractor/signup-contractor.component';
 import { LoginComponent } from './components/login/login.component';
+import { AllocationComponent } from './components/allocation/allocation.component';
 import { FormsModule } from '@angular/forms';
 import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
@@ -34,6 +35,7 @@ import {
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { GoogleSigninComponent } from './components/google-signin/google-signin.component';
 import { environment } from '../environments/environment';
+import { InvitationComponent } from './components/invitation/invitation.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -59,7 +61,9 @@ FullCalendarModule.registerPlugins([
     SignupEmployeeComponent,
     SignupContractorComponent,
     LoginComponent,
-    GoogleSigninComponent
+    AllocationComponent,
+    GoogleSigninComponent,
+    InvitationComponent
   ],
   imports: [
     BrowserModule,

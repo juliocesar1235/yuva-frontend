@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-servicio-historial',
   templateUrl: './history-service.component.html',
@@ -7,21 +7,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HistoryServiceComponent implements OnInit {
 
-  @Input() service: {
-    name: string;
-    desc: string;
-    media: object;
-    totalOfEmployees: number;
-    averageServiceTime: number;
-    cost: number;
-    id?: string;
-  } | undefined;
-  constructor(service: Object) { }
+  @Input() serviceList: any;
+  constructor(private router: Router) { 
 
-
-
-
-  ngOnInit(): void {
   }
 
+  btnClick() {
+    this.router.navigateByUrl('/service-detail');
+  }
+  
+  ngOnInit(): void {
+    console.log("Lista de servicio", this.serviceList)
+
+  }
+  
 }
