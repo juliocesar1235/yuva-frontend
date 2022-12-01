@@ -16,7 +16,7 @@ import { GoogleSigninComponent } from './components/google-signin/google-signin.
 const routes: Routes = [
   { path: 'service-detail', component: ServiceDetailComponent },
   { path: 'services', component: ServiceListComponent },
-  { path: 'profile/contractor/favorite', component: FavoriteServiceComponent },
+  { path: 'profile/contractor/:id/favorite', component: FavoriteServiceComponent },
   { path: 'employee/signup', component: SignupEmployeeComponent },
   { path: 'contractor/signup', component: SignupContractorComponent },
   { path: 'login', component: LoginComponent },
