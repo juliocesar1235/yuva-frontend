@@ -40,8 +40,17 @@ export class FavoriteServiceComponent implements OnInit {
         //alert(JSON.stringify(response))
         this.user = response
         this.user["formattedDOB"] = new Date(this.user["dateOfBirth"]).toLocaleDateString()
+        console.log(this.user)
+        this.servicelistservices.getServices().subscribe((resp: any) => {
+          // console.log(resp)
+          this.services = resp.filter((service: any) => {
+            console.log("response", this.user.favoriteServices, resp)
+            console.log(service._id)
+            return this.user.favoriteServices.includes(service._id)
+          });
 
-
+          console.log(this.services)
+        })
 
       }
       )
@@ -51,17 +60,13 @@ export class FavoriteServiceComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private servicelistservices: ServiceListService,
   ) {
-    this.servicelistservices.getServices().subscribe((resp: any) => {
-      // console.log(resp)
-      this.services = resp.filter((service: any) => {
-        this.user.favoriteServices.includes(service._id)
-      });
-    })
+
   }
 
   ngOnInit(): void {
 
     this.id = this.route.snapshot.paramMap.get('id')
+    this.loadUser()
   }
 
 }
