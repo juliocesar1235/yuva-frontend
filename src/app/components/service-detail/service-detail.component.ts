@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CalendarOptions, DateSelectArg, EventClickArg, EventApi } from '@fullcalendar/angular'
 import { createEventId } from '../../event-utils';
 import { ServiceListService } from 'src/app/services/service-list.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Component({
   selector: 'app-service-detail',
   templateUrl: './service-detail.component.html',
@@ -9,7 +11,8 @@ import { ServiceListService } from 'src/app/services/service-list.service';
 })
 export class ServiceDetailComponent implements OnInit {
   serviced!: any;
-  constructor(private service: ServiceListService) { }
+  url = 'http://localhost:3000/yuva-api/allocations';
+  constructor(private service: ServiceListService, private http:HttpClient) { }
 
   dates: Array<string> = [];
 
@@ -58,5 +61,11 @@ export class ServiceDetailComponent implements OnInit {
   // loadServiceData(){
     
   // }
+
+  allocateUsers(){
+
+    
+  
+  }
 
 }
