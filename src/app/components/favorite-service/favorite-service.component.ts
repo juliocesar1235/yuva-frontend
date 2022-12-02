@@ -14,6 +14,17 @@ export class FavoriteServiceComponent implements OnInit {
   user: any;
   services: any;
 
+  constructor(private route: ActivatedRoute, private http: HttpClient, private servicelistservices: ServiceListService,
+    ) {
+  
+    }
+  
+    ngOnInit(): void {
+  
+      this.id = this.route.snapshot.paramMap.get('id')
+      this.loadUser()
+    }
+
 
   favoriteEventListener(event: any) {
 
@@ -58,15 +69,6 @@ export class FavoriteServiceComponent implements OnInit {
   }
 
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private servicelistservices: ServiceListService,
-  ) {
 
-  }
-
-  ngOnInit(): void {
-
-    this.id = this.route.snapshot.paramMap.get('id')
-    this.loadUser()
-  }
 
 }
