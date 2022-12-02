@@ -23,58 +23,64 @@ export class ServiceListComponent implements OnInit {
   public services: Array<any> = [];
 
   socialUser!: SocialUser;
-  user:any;
-  isLoggedin?: boolean = false
- 
+  user: any;
+  userId: any;
+
 
   constructor(
-    private servicelistservices:ServiceListService,
+    private servicelistservices: ServiceListService,
     public activatedRoute: ActivatedRoute,
-    private auth:AuthService,
+    private auth: AuthService,
     private router: Router,
     private http: HttpClient
-    ) { 
-    this.servicelistservices.getServices().subscribe((resp: any)=>{
+  ) {
+    this.servicelistservices.getServices().subscribe((resp: any) => {
       // console.log(resp)
       this.services = resp;
     })
   }
 
-  favoriteEventListener(event:any){
+  favoriteEventListener(event: any) {
 
     const [isFavorite, service] = event
     // si es favorito ir al arreglo y asegurarnos que esté
     let set = new Set(this.user.favoriteServices)
-    if(isFavorite){
-      set.add(service._id)      
+    if (isFavorite) {
+      set.add(service._id)
     } else {
-      
+
       set.delete(service._id)
 
     }
-// lUgo hacer el put del usuario actualizado
-    this.user.favoriteServices = [...set] 
-    this.http.put('http://localhost:3000/yuva-api/users/' + this.user._id,{favoriteServices:this.user.favoriteServices})
+    // lUgo hacer el put del usuario actualizado
+    this.user.favoriteServices = [...set]
+    console.log("HACER PUT")
+    this.http.put('http://localhost:3000/yuva-api/users/' + this.user._id, { favoriteServices: this.user.favoriteServices }).subscribe()
   }
 
-  loadUser(){
+  loadUser() {
     console.log(this.user, "enontrado!")
-    // this.user.favoriteServices??=[]
     // console.log(this.user.favoriteServices.includes("63466d59f5cea1401ec15dbc")," servicios favoritos")
 
-    //obtener lo de localstorage
-    }
-    
-    // // this.http
-    // // .get('http://localhost:3000/yuva-api/users/' + this.socialUser.id)
-    // // .subscribe((response) => {
-    // //   this.user = response
-    // //   console.log("servicelistuserloaded")
-    // })
-  
+    this.http
+      .get('http://localhost:3000/yuva-api/users/' + this.userId)
+      .subscribe((response) => {
+        this.user = response
+        console.log("servicelistuserloaded")
+        this.user.favoriteServices ??= []
+
+        console.log(this.user, "USUARIO")
+
+      })
+
+  }
+
 
   ngOnInit(): void {
-   console.log("USER DATA",this.auth.userData.yuva) 
+    console.log("try get user")
+    this.userId = localStorage.getItem('yuva')
+
+    this.loadUser()
   }
 
 }

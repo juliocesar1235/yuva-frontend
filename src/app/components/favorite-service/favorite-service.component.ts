@@ -29,8 +29,10 @@ export class FavoriteServiceComponent implements OnInit {
     }
     // lUgo hacer el put del usuario actualizado
     this.user.favoriteServices = [...set]
-    this.http.put('http://localhost:3000/yuva-api/users/' + this.user._id, { favoriteServices: this.user.favoriteServices })
+    console.log("HACER PUT")
+    this.http.put('http://localhost:3000/yuva-api/users/' + this.user._id, { favoriteServices: this.user.favoriteServices }).subscribe()
   }
+
 
   loadUser() {
     console.log("getting user")
@@ -44,8 +46,6 @@ export class FavoriteServiceComponent implements OnInit {
         this.servicelistservices.getServices().subscribe((resp: any) => {
           // console.log(resp)
           this.services = resp.filter((service: any) => {
-            console.log("response", this.user.favoriteServices, resp)
-            console.log(service._id)
             return this.user.favoriteServices.includes(service._id)
           });
 

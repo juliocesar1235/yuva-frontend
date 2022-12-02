@@ -9,18 +9,19 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ServiceCardComponent implements OnInit {
   @Input() service: any;
-  @Output() public favoriteEvent: EventEmitter <any> = new EventEmitter();
+  @Output() public favoriteEvent: EventEmitter<any> = new EventEmitter();
   @Input() isLoggedIn: boolean = false;
- 
-  @Input() isFavorite: boolean = false
- 
 
-  constructor(private router: Router,private auth:AuthService) { 
-    
+  @Input() isFavorite: boolean = false
+  userId: any;
+
+
+  constructor(private router: Router, private auth: AuthService) {
+
   }
 
 
-  
+
 
   clickFavorite() {
     // console.log(this)
@@ -29,7 +30,7 @@ export class ServiceCardComponent implements OnInit {
 
   }
 
-  selectService(id:any){
+  selectService(id: any) {
     localStorage.setItem("serviceId", id)
     // let userId = localStorage.getItem("yuva");
 
@@ -39,7 +40,6 @@ export class ServiceCardComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.service._id, "IDDDDDD")
     this.isLoggedIn = this.auth.isLoggedIn
-    
-   
+ 
   }
 }
