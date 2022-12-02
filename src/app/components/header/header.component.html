@@ -1,22 +1,44 @@
 <nav class="navbar navbar-expand-sm navbar-color">
-  <div class="container">
-      <a routerLink="/" class="navbar-brand d-flex justify-content-center">
-          <img src="../../../assets/LogoFinal.png" height="33">
-          <span>YU</span>
-          <span class="nav-yellow">VA</span>
-      </a>
-      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-nav">
-              <a routerLink="/home" class="nav-item nav-link">Inicio</a>
-              <a routerLink="/services" class="nav-item nav-link">Categorias</a>
-          </div>
-          <div class="navbar-nav ms-auto">
-              <a routerLink="/register" class="nav-item nav-link nav-bold">Regístrate</a>
-              <a routerLink="/login" class="nav-item nav-link nav-bold">Iniciar sesión</a>
-          </div>
-      </div>
-  </div>
+    <div class="container">
+        <a routerLink="/" class="navbar-brand d-flex justify-content-center">
+            <img src="../../../assets/LogoFinal.png" height="33">
+            <span>YU</span>
+            <span class="nav-yellow">VA</span>
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a routerLink="/home" class="nav-item nav-link">Inicio</a>
+                <a *ngIf="!userEmp" routerLink="/services" class="nav-item nav-link">Servicios</a>
+            </div>
+            <div *ngIf="!userAuthenticated" class="navbar-nav ms-auto">
+                <a routerLink="/register" class="nav-item nav-link nav-bold">Regístrate</a>
+                <a routerLink="/login" class="nav-item nav-link nav-bold">Iniciar sesión</a>
+            </div>
+            <!-- perfil dropdown -->
+            <div *ngIf="userAuthenticated" class="nav navbar-nav ms-auto">
+                <div class="col">
+                    <div ngbDropdown class="nav-item nav-link nav-bold ">
+                        <img src="https://www.oseyo.co.uk/wp-content/uploads/2020/05/empty-profile-picture-png-2.png"
+                            width="30" height="30" class="d-inline-block align-top" alt="">
+                        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                            {{userName}}
+                        </button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1 navbar-nav ms-auto" class="">
+                            <button (click)="routHistorial()" ngbDropdownItem>Historial</button>
+                            <button *ngIf="!userEmp" (click)="routfavoritel()" ngbDropdownItem>Favoritos</button>
+                            <button routerLink="/login" (click)="signOut()" ngbDropdownItem>Cerrar sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div *ngIf="userAuthenticated" class="navbar-nav ms-auto">
+                <a routerLink="/login" (click)="signOut()" class="nav-item nav-link nav-bold">Salir sesion</a>
+            </div> -->
+
+
+        </div>
+    </div>
 </nav>

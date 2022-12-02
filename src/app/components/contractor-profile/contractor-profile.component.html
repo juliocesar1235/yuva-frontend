@@ -3,28 +3,40 @@
 <div class="d-flex  flex-wrap flex-md-nowrap justify-content-center mt-5 px-5">
     <div class="mb-5 " style="color:black; overflow: hidden;max-width: 300px;">
         <div class="card">
-            <img src={{user.avatar}} class="card-img-top mx-auto" alt="..." style="max-width: 150px">
             <div class="card-body">
 
-                <div *ngFor="let category of usersInfo" class="d-flex justify-content-between flex-row">
-                    <b *ngIf="user[category.propertyName]">{{category.label}}</b>
-                    <p *ngIf="user[category.propertyName]">{{user[category.propertyName]}}</p>
-                </div>
-
-
-                <!-- <ngb-rating [rate]="3" [max]="5" [readonly]="true"></ngb-rating> -->
+                <ng-template [ngIf]="loadedData" class="justify-content-between flex-row">
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                        class="card-img-top mx-auto profile-pic" style="max-width: 150px">
+                    <div class="justify-content-between flex-row">
+                        <b>Nombre:</b>
+                        <p>{{user.firstName +' '+user.lastName}}</p>
+                        <b>Email:</b>
+                        <p>{{user.email}}</p>
+                        <b>Número de telefono:</b>
+                        <p>{{user.phoneNumber || ''}}</p>
+                        <b>Fecha de Nacimiento:</b>
+                        <p>{{formattedDob}}</p>
+                        <b>Dirección:</b>
+                        <p>{{user.address}}</p>
+                        <b>Ciudad:</b>
+                        <p>{{user.city}}</p>
+                        <b>Codigo postal:</b>
+                        <p>{{user.zipcode}}</p>
+                        <b>Tipo de cuenta:</b>
+                        <p>{{user.userType}}</p>
+                    </div>
+                </ng-template>
             </div>
         </div>
-        <button type="button" class="btn btn-warning mt-5 " style="width:150px ;">Editar perfil</button>
+        <!-- <div class="edit-button-container">
+            <button type="button" class="btn btn-warning mt-5 " style="width:150px ;">Editar perfil</button>
+        </div> -->
     </div>
-
-
     <div class="card flex-shrink-1 ms-5" style="color:black; ">
         <div class="card-body d-flex flex-column align-items-center justify-content-start p-5">
-            <h2>Historial de servicios</h2>
-            <!-- <h2>{{service.name}}</h2>
-            <img src={{service.media.serviceAvatar}} class="card-img-top" alt="..." style="max-height: 15vw"> -->
-            <app-servicio-historial [serviceList]="services"></app-servicio-historial>
+            <h2>Tu historial</h2>
+            <app-servicio-historial [allocationList]="allocations"></app-servicio-historial>
 
         </div>
     </div>

@@ -16,7 +16,7 @@ export const userKeys = [{
     label: "Teléfono"
 },
 {
-    propertyName: "formattedDOB",
+    propertyName: "dateOfBirth",
     label: "Fecha de nacimiento"
 },
 {

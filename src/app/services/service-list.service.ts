@@ -17,4 +17,12 @@ export class ServiceListService {
       headers: header
     });
   }
+
+  getserviceData(id:any){
+    let header = new HttpHeaders().set('Type-content', 'application/json')
+
+    return this.http.get(this.url +"/"+ id, {
+      headers: header
+    });
+  }
 }

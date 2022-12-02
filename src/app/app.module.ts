@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContractorProfileComponent } from './components/contractor-profile/contractor-profile.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -13,8 +15,6 @@ import { HistoryServiceComponent } from './components/history-service/history-se
 import { FavoriteServiceComponent } from './components/favorite-service/favorite-service.component';
 import { ServiceCardComponent } from './components/service-card/service-card.component';
 import { ServiceListComponent } from './components/service-list/service-list.component';
-import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './components/register/register.component';
 import { TextBoxComponent } from './components/text-box/text-box.component';
 import { FooterForRegisterComponent } from './components/footer-for-register/footer-for-register.component';
@@ -23,6 +23,10 @@ import { SignupContractorComponent } from './components/signup-contractor/signup
 import { LoginComponent } from './components/login/login.component';
 import { AllocationComponent } from './components/allocation/allocation.component';
 import { FormsModule } from '@angular/forms';
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 import { ReactiveFormsModule } from '@angular/forms';
 import {
   SocialLoginModule,
@@ -30,9 +34,21 @@ import {
 } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { GoogleSigninComponent } from './components/google-signin/google-signin.component';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { InvitationComponent } from './components/invitation/invitation.component';
+// Firebase services + environment module
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { TranslatePipe } from './translation.pipe';
 
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  timeGridPlugin,
+  interactionPlugin
+])
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,17 +70,24 @@ import { InvitationComponent } from './components/invitation/invitation.componen
     LoginComponent,
     AllocationComponent,
     GoogleSigninComponent,
-    InvitationComponent
+    InvitationComponent,
+    TranslatePipe
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
     CommonModule,
     FormsModule,
+    FullCalendarModule,
     ReactiveFormsModule,
-    SocialLoginModule
+    SocialLoginModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',

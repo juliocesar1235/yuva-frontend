@@ -34,16 +34,18 @@ export class SignupContractorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((params: any) => {
-      console.log("PARAMMMMSSSS", JSON.stringify(params.data))
-      this.userID = params.data
-    })
+    // this.activatedRoute.queryParams.subscribe((params: any) => {
+    //   console.log("PARAMMMMSSSS", JSON.stringify(params.data))
+    //   this.userID = params.data
+    // })
 
     // this.signupcontractorservices.getServices().subscribe((resp: any)=>{
     //   this.userData = resp;
     // })
   }
   getUserFormData(data:{firstName: string, lastName: string, dob: NgbDate, serviceCategory: string, address: string, city: string, zipcode: string, phoneNumber: string}){
+
+    this.userID = localStorage.getItem("yuva")!;
 
     let newData:ContractorI = { 
       phoneNumber: data.phoneNumber,
@@ -61,8 +63,8 @@ export class SignupContractorComponent implements OnInit {
       // console.log(result)
       // this.router.navigate(['employee/signup'], {queryParams:{data: newData.email}})
       this.userResponse = result
-      console.log("cosaaaaaaaaaaaaaaa ", 'profile/contractor/' + this.userResponse)
-      this.router.navigate(['/profile/contractor/' + this.userResponse], {queryParams:{data: this.userResponse}})
+      console.log("cosaaaaaaaaaaaaaaa ", 'profile/contractor/' + this.userID)
+      this.router.navigate(['/profile/contractor/' + this.userID], {queryParams:{data: this.userID}})
     }) 
   }
 
