@@ -99,11 +99,11 @@
               
             </div> -->
 
-            <div *ngIf="services" class="card mt-5 mx-auto" style="max-width: 700px;" *ngFor="let service of services">
+            <div class="card mt-5 mx-auto" style="max-width: 700px;" *ngFor="let service of services">
               <app-service-card [isFavorite]="user.favoriteServices.includes(service._id)" [isLoggedIn]="!!user"
                 (favoriteEvent)="favoriteEventListener($event)" [service]="service"></app-service-card>
             </div>
-            <h3 *ngIf="!services">No hay servicios favoritos</h3>
+            <h3 *ngIf="!services || services.isEmpty()">No hay servicios favoritos</h3>
 
 
           </div>
