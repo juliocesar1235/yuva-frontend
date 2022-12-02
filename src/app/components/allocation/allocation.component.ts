@@ -14,7 +14,7 @@ export class AllocationComponent implements OnInit {
   employee: any;
   id: any;
   isAllocationLoaded: boolean = false;
-
+  allocationStatus: boolean = false;
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
@@ -25,6 +25,7 @@ export class AllocationComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.loadAllocation();
     this.findEmployee();
+
   }
 
 
@@ -42,6 +43,11 @@ export class AllocationComponent implements OnInit {
             .subscribe((response) => {
               //alert(JSON.stringify(response))
               this.employee = response
+
+              if(this.allocation.serviceStatus =='confirmed'){
+                this.allocationStatus = true;
+              }
+
             });
         }
       });
@@ -51,5 +57,9 @@ export class AllocationComponent implements OnInit {
     this.allocationService.searchEmployee(this.id).subscribe((result) => {
       console.log('hola');
     });
+  }
+
+  getColor(){
+    return this.allocation.serviceStatus === 'confirmed' ? 'green' : 'red';
   }
 }

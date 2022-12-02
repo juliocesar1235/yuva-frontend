@@ -11,7 +11,8 @@
         <p class="card-text mt-4 ms-4"><b>Fecha de confirmación:</b> {{ allocation.confirmedServiceDate}} </p>
         <p class="card-text mt-4 ms-4"><b>Duración del servicio:</b> {{ allocation.completedServiceTotalTime}}hrs </p>
         <p class="card-text mt-4 ms-4"><b>Dirección del servicio:</b> {{ allocation.serviceAddress}}</p>
-        <p class="card-text mt-4 ms-4"><b>Status del servicio:</b> {{ allocation.serviceStatus}}</p>
+        <p *ngIf="!allocationStatus"  class="card-text mt-4 ms-4" style="font-weight:bold"><b>Status del servicio:</b> <span [ngStyle]="{color: getColor()}"> Buscando empleado</span></p>
+        <p *ngIf="allocationStatus"  class="card-text mt-4 ms-4" style="font-weight:bold"><b>Status del servicio:</b> <span [ngStyle]="{color: getColor()}"> Confirmado</span></p>
         <p class="card-text mt-4 ms-4 mb-5"><b>Costo:</b> {{ allocation.cost}} </p>
 
         <!-- <div class="d-flex flex-row">

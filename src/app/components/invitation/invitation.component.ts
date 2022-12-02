@@ -12,7 +12,7 @@ export class InvitationComponent implements OnInit {
   url = "http://localhost:3000/yuva-api/invitations/"
   id: any;
   decisionClicked:boolean = false;
-
+  invitationDecided: boolean = false;
   constructor(private route: ActivatedRoute, private http: HttpClient, public invi: InvitationService) { }
   invitation: any;
   loadInvitation() {
