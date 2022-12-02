@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  userAuthenticated: boolean = false;
+  userName!: any;
+  userEmp!: boolean;
+  userID!: any;
+  constructor(
+    private authService: AuthService, private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.userLoggedIn()
+    this.userName = localStorage.getItem("name")
+    this.getUserType()
   }
 
+  signOut() {
+    this.userAuthenticated = false;
+    this.authService.SignOut();
+  }
+
+  userLoggedIn() {
+    if (localStorage.getItem('user') != 'null') {
+      this.userAuthenticated = true
+    } else {
+      this.userAuthenticated = false;
+    }
+  }
+
+  getUserType() {
+    if (localStorage.getItem('userT') == "employee") {
+      this.userEmp = true;
+    } else {
+      this.userEmp = false;
+    }
+  }
+
+  routHistorial() {
+    if (localStorage.getItem('userT') == "employee") {
+      this.router.navigate(['profile/employee/' + localStorage.getItem("yuva")])
+    } else {
+      this.router.navigate(['profile/contractor/' + localStorage.getItem("yuva")])
+    }
+
+  }
+
+  routfavoritel() {
+    this.router.navigate(['profile/contractor/' + localStorage.getItem("yuva") + '/favorite'])
+    // profile/contractor/:id/favorite
+  }
 }

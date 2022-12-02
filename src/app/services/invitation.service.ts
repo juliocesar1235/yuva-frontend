@@ -8,7 +8,7 @@ export class InvitationService {
   url = "http://localhost:3000/yuva-api/invitations/"
 
   constructor(private http: HttpClient) { }
-  updateInvitation(id:string, data:any){
-    return this.http.put(this.url + "/" + id, data, { responseType: 'text'}).toPromise()
+  updateInvitation(id: string, data: any) {
+    return this.http.put(this.url + "/" + id, data, { responseType: 'text' });
   }
 }

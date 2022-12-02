@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IAllocation } from 'src/app/interfaces/allocations';
 @Component({
   selector: 'app-servicio-historial',
   templateUrl: './history-service.component.html',
@@ -7,18 +8,20 @@ import { Router } from '@angular/router';
 })
 export class HistoryServiceComponent implements OnInit {
 
-  @Input() serviceList: any;
-  constructor(private router: Router) { 
+  @Input() allocationList!: [IAllocation];
+  constructor(private router: Router) {
 
   }
 
-  btnClick() {
-    this.router.navigateByUrl('/service-detail');
-  }
-  
   ngOnInit(): void {
-    console.log("Lista de servicio", this.serviceList)
+    console.log("Lista de servicio", this.allocationList)
 
   }
-  
+
+  goToAllocation(id: string | undefined) {
+    if (id) {
+      this.router.navigateByUrl('/allocation/' + id);
+    }
+  }
+
 }

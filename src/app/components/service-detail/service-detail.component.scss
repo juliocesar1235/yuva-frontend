@@ -82,3 +82,15 @@ body h3{
 }
 
 
+.fc .fc-timegrid-axis-frame {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: black;
+}
+
+.fc .fc-timegrid-slot-label {
+  padding: 0 4px;
+  color: black;
+}
