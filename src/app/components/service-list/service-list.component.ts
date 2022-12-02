@@ -9,9 +9,10 @@ import {
 } from '@abacritt/angularx-social-login';
 import { ActivatedRoute, Router } from '@angular/router';
 // import {GoogleSigninService } from '../../services/google-signin.service';
-import { GoogleLoginService } from 'src/app/services/google-login.service';
-import { IUserRes } from 'src/app/interfaces/user';
+// import { GoogleLoginService } from 'src/app/services/google-login.service';
+// import { IUserRes } from 'src/app/interfaces/user';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-service-list',
@@ -28,10 +29,8 @@ export class ServiceListComponent implements OnInit {
 
   constructor(
     private servicelistservices:ServiceListService,
-    private formBuilder: FormBuilder,
-    private socialAuthService: SocialAuthService,
     public activatedRoute: ActivatedRoute,
-    private loginS: GoogleLoginService,
+    private auth:AuthService,
     private router: Router,
     private http: HttpClient
     ) { 
@@ -59,11 +58,12 @@ export class ServiceListComponent implements OnInit {
   }
 
   loadUser(){
-    this.loginS.serveUser(this.socialUser.email).subscribe((response) => {this.user = response
     console.log(this.user, "enontrado!")
-    this.user.favoriteServices??=[]
+    // this.user.favoriteServices??=[]
     // console.log(this.user.favoriteServices.includes("63466d59f5cea1401ec15dbc")," servicios favoritos")
-    })
+
+    //obtener lo de localstorage
+    }
     
     // // this.http
     // // .get('http://localhost:3000/yuva-api/users/' + this.socialUser.id)
@@ -71,30 +71,10 @@ export class ServiceListComponent implements OnInit {
     // //   this.user = response
     // //   console.log("servicelistuserloaded")
     // })
-  }
+  
 
   ngOnInit(): void {
-
-    this.socialAuthService.authState.subscribe((user) => {
-      this.socialUser = user;
-      //637ae8121e9375a11cd42ea6
-      this.isLoggedin = (user != null);
-      this.loadUser()
-
-      // this.loginS.serveUser(user.email).subscribe((result: any)=>{
-
-      //   if(result.userType == 'employee'){
-        
-      //     this.router.navigate(['/profile/employee/' + result._id], {queryParams:{data: result._id}})
-      //   }else{
-      //     this.router.navigate(['/profile/contractor/' + result._id], {queryParams:{data: result._id}})    
-      // }
-      // }) 
-
-      // this.user
-      console.log(this.socialUser)
-      console.log(this.services)
-    });
+   console.log("USER DATA",this.auth.userData.yuva) 
   }
 
 }

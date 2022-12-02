@@ -100,7 +100,7 @@
             </div> -->
 
             <div class="card mt-5 mx-auto" style="max-width: 700px;" *ngFor="let service of services">
-              <app-service-card [isFavorite]="user.favoriteServices.includes(service._id)" [isLogedIn]="!!user"
+              <app-service-card [isFavorite]="user.favoriteServices.includes(service._id)" [isLoggedIn]="!!user"
                 (favoriteEvent)="favoriteEventListener($event)" [service]="service"></app-service-card>
             </div>
 

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-service-card',
@@ -9,12 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ServiceCardComponent implements OnInit {
   @Input() service: any;
   @Output() public favoriteEvent: EventEmitter <any> = new EventEmitter();
-  @Input() isLogedIn: boolean = false;
+  @Input() isLoggedIn: boolean = false;
  
   @Input() isFavorite: boolean = false
  
 
-  constructor(private router: Router) { 
+  constructor(private router: Router,private auth:AuthService) { 
     
   }
 
@@ -22,7 +23,7 @@ export class ServiceCardComponent implements OnInit {
   
 
   clickFavorite() {
-    console.log(this)
+    // console.log(this)
     this.isFavorite = !this.isFavorite;
     this.favoriteEvent.emit([this.isFavorite, this.service])
 
@@ -37,6 +38,8 @@ export class ServiceCardComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.service._id, "IDDDDDD")
+    this.isLoggedIn = this.auth.isLoggedIn
+    
    
   }
 }
