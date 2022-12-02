@@ -10,5 +10,8 @@ export class AllocationService {
 
   createAllocation(data: any) {
     return this.http.post(this.url2, data)
-}
+  }
+  searchEmployee(id: string) {
+    return this.http.get(this.url2 + "/allocation-match/" + id);
+  }
 }

@@ -30,7 +30,7 @@ export class ServiceCardComponent implements OnInit {
 
   selectService(id: any) {
     localStorage.setItem("serviceId", id)
-    this.router.navigate(['/service-detail'])
+    this.router.navigate(['/service-detail/' + id])
   }
 
   ngOnInit(): void {

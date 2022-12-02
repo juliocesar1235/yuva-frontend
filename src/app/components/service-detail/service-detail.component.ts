@@ -5,23 +5,9 @@ import { ServiceListService } from 'src/app/services/service-list.service';
 import { AllocationService } from 'src/app/services/allocation.service';
 // import { IAllcoations } from '../../interfaces/allocations';
 import { GoogleLoginService } from 'src/app/services/google-login.service';
-
-interface IAllocation{
-  contractorId: string,
-  serviceId: string,
-  serviceName: string,
-  confirmedServiceDate: Date,
-  completedServiceTotalTime: number,
-  serviceAddress: string,
-  serviceStatus: string,
-  cost: number
-// public rating?: number,
-// public favorite?: boolean,
-// public tentativeEmployeeId?: ObjectId,
-// public confirmedEmployeeId?: ObjectId,
-// public rejectedEmployees?: Array<ObjectId>,
-// public _id?: ObjectId
-}
+import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
+import { IAllocation } from 'src/app/interfaces/allocations';
 
 @Component({
   selector: 'app-service-detail',
@@ -29,36 +15,40 @@ interface IAllocation{
   styleUrls: ['./service-detail.component.scss']
 })
 export class ServiceDetailComponent implements OnInit {
+
   serviced!: any;
   url = 'http://localhost:3000/yuva-api/allocations';
-  constructor(private service: ServiceListService, private allocation: AllocationService, private userServ: GoogleLoginService) { }
   dates: Array<string> = [];
   userGet!: any;
-  dateT: Array<Date> = [];
+  dateT: Array<Date | undefined | null> = [];
   calendarOptions: CalendarOptions = {
     initialView: 'timeGridWeek',
+    slotDuration: '02:00:00',
     editable: true,
     selectable: true,
+    eventBackgroundColor: '#055CF5',
     select: this.handleDateSelect.bind(this),
     eventClick: this.handleEventClick.bind(this),
   }
   startT!: any;
   endT!: any;
-  ngOnInit(): void {
-    this.service.getserviceData(localStorage.getItem("serviceId")).subscribe((result)=>{
-      this.serviced = result;
-      // console.log(result)
-      console.log(this.serviced)
+  isServiceLoaded: boolean = false;
+  createdEvent!: EventApi | null;
 
-      this.userServ.getUser(localStorage.getItem("yuva")!).subscribe((result)=>{
-        this.userGet = result;
-        // console.log(result)
-        // console.log("THIS USERGET", this.userGet)
-      })
-    })
-    // console.log("HEREEEE")
-    
-    
+  constructor(
+    private service: ServiceListService,
+    private allocation: AllocationService,
+    private router: Router,
+    private userService: UserService
+  ) { }
+
+  ngOnInit(): void {
+    this.service.getserviceData(localStorage.getItem("serviceId")).subscribe((result) => {
+      this.serviced = result;
+      this.isServiceLoaded = true;
+      console.log(this.serviced)
+    });
+    this.getUserData();
   }
 
   handleDateSelect(selectInfo: DateSelectArg) {
@@ -68,22 +58,19 @@ export class ServiceDetailComponent implements OnInit {
     calendarApi.unselect(); // clear date selection
 
     if (title) {
-      calendarApi.addEvent({
+      this.createdEvent = calendarApi.addEvent({
         id: createEventId(),
         title,
         start: selectInfo.startStr,
         end: selectInfo.endStr,
         allDay: selectInfo.allDay,
       });
+      let convertDate = this.createdEvent?.start;
+      this.dateT.push(convertDate);
+      this.dates.push(JSON.stringify(convertDate));
+      this.startT = selectInfo.startStr
+      this.endT = selectInfo.endStr
     }
-    let convertDate = calendarApi.getDate()
-    this.dateT.push(convertDate);
-    this.dates.push(JSON.stringify(convertDate));
-    console.log(this.dates[0])
-    this.startT = selectInfo.startStr
-    this.endT = selectInfo.endStr
-    // console.log("START TIME", this.endT)
-    
   }
 
   handleEventClick(clickInfo: EventClickArg) {
@@ -92,45 +79,26 @@ export class ServiceDetailComponent implements OnInit {
     }
   }
 
-  // loadServiceData(){
-    
-  // }
-
-  allocateUsers(){
-    // this.http.post(url, )
-    // console.log("THIS SERRRRRRRR",this.serviced)
-    // console.log("THIS USERGET", this.userGet)
-
-    let nData:IAllocation = {
+  allocateUsers() {
+    let nData: IAllocation = {
       contractorId: this.userGet._id,
       serviceId: this.serviced._id,
       serviceName: this.serviced.name,
       confirmedServiceDate: this.dateT[0],
-      completedServiceTotalTime: 0,
+      completedServiceTotalTime: 2,
       serviceAddress: this.userGet.address + " " + " " + this.userGet.city,
       serviceStatus: "searchingEmployee",
       cost: this.serviced.cost
     }
-
-    console.log("DATA A MANDAR", nData)
-    this.allocation.createAllocation(nData).subscribe((res) => {
-      console.log("Allocation", res)
+    this.allocation.createAllocation(nData).subscribe((result: any) => {
+      console.log("Allocation", result)
+      this.router.navigate(["/allocation/" + result.insertedId]);
     })
-    
-  
   }
-// public contractorId: ObjectId,
-// public serviceId: ObjectId,
-// public serviceName: string,
-// public confirmedServiceDate: Date,
-// public completedServiceTotalTime: number,
-// public serviceAddress: string,
-// public serviceStatus: string,
-// public cost: number,
-// public rating?: number,
-// public favorite?: boolean,
-// public tentativeEmployeeId?: ObjectId,
-// public confirmedEmployeeId?: ObjectId,
-// public rejectedEmployees?: Array<ObjectId>,
-// public _id?: ObjectId
+
+  getUserData() {
+    this.userService.getUser(localStorage.getItem("yuva")).subscribe((result) => {
+      this.userGet = result;
+    });
+  }
 }

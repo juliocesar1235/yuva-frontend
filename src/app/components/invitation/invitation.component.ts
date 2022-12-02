@@ -13,9 +13,9 @@ export class InvitationComponent implements OnInit {
   id: any;
   constructor(private route: ActivatedRoute, private http: HttpClient, public invi: InvitationService) { }
   invitation: any;
-  loadInvitation(){
+  loadInvitation() {
     this.http
-      .get(this.url +this.id)
+      .get(this.url + this.id)
       .subscribe((response) => {
         console.log("got RESPUESTAAA", response)
         this.invitation = response
@@ -25,12 +25,24 @@ export class InvitationComponent implements OnInit {
 
   }
 
-  acceptInvitation(){
-    this.invi.updateInvitation(this.id, {inviteConfirmation:"accepted"})
+  acceptInvitation() {
+    this.invi.updateInvitation(this.id, {
+      inviteConfirmation: "accepted",
+      allocationId: this.invitation.allocationId,
+      employeeId: this.invitation.employeeId
+    }).subscribe((result) => {
+      console.log('updated invitation')
+    });
   }
 
-  rejectInvitation(){
-    this.invi.updateInvitation(this.id, {inviteConfirmation:"rejected"})
+  rejectInvitation() {
+    this.invi.updateInvitation(this.id, {
+      inviteConfirmation: "rejected",
+      allocationId: this.invitation.allocationId,
+      employeeId: this.invitation.employeeId
+    }).subscribe((result) => {
+      console.log('updated invitation')
+    });
   }
   ngOnInit(): void {
 
