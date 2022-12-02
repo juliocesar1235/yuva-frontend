@@ -6,36 +6,19 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex flex-column align-items-center">
-              <img [src]="user.avatar" alt="Admin" class="square" width="150">
+              <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                class="card-img-top mx-auto profile-pic" style="max-width: 150px">
               <div class="mt-3">
                 <div class="row mt-4">
                   <div class="col-sm-6">
-                    <h6 class="mb-0 card-text heading">Full Name</h6>
+                    <h6 class="mb-0 card-text heading">Perfil</h6>
                   </div>
                   <div class="col-sm-5 card-text">
                     {{user.firstName}} {{user.lastName}}
                   </div>
                 </div>
 
-                <div class="row mt-4">
-                  <div class="col-sm-6 ">
-                    <h6 class="mb-0 card-text heading">Birthday</h6>
-                  </div>
-                  <div class="col-sm-3 card-text">
-                    {{user.dateOfBirth | date}}
-                  </div>
-                </div>
-
-
-
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="row gutter-sm">
-          <div class="col-md-8 col-centered">
-            <div class="row mt-2">
-              <button class="btn btn-primary mt-3 px-5 float-end " type="submit">Ver mas</button>
             </div>
           </div>
         </div>
