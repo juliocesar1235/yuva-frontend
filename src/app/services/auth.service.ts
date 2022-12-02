@@ -57,18 +57,18 @@ export class AuthService {
             //   this.router.navigate(['dashboard']);
             // }
 
-            this.logInS.serveUser(email).subscribe((nUser: any)=>{
-            localStorage.setItem("yuva", nUser._id.toString())
-            localStorage.setItem("name", nUser.firstName)
-            localStorage.setItem("userT", nUser.userType)
+            this.logInS.serveUser(email).subscribe((nUser: any) => {
+              localStorage.setItem("yuva", nUser._id.toString())
+              localStorage.setItem("name", nUser.firstName)
+              localStorage.setItem("userT", nUser.userType)
               console.log("Usuario", nUser)
-              if( nUser.userType == "employee"){
-                this.router.navigate(['/profile/employee/' + nUser._id], {queryParams:{data: nUser._id}})
-              }else{
-                this.router.navigate(['/profile/contractor/' + nUser._id], {queryParams:{data: nUser._id}})
+              if (nUser.userType == "employee") {
+                this.router.navigate(['/profile/employee/' + nUser._id], { queryParams: { data: nUser._id } })
+              } else {
+                this.router.navigate(['/profile/contractor/' + nUser._id], { queryParams: { data: nUser._id } })
               }
             });
-            
+
           });
         })
         .catch((error) => {
@@ -90,6 +90,7 @@ export class AuthService {
             firebaseID: result.user?.uid,
             userType: userT
           }).subscribe((response) => {
+            console.log("response from yuva backend", response.valueOf());
             localStorage.setItem("yuva", response.toString())
             localStorage.setItem("name", firstName)
             localStorage.setItem("userT", userT)
@@ -150,10 +151,12 @@ export class AuthService {
 
   SignOut() {
     return this.afAuth.signOut().then(() => {
-      // localStorage.removeItem("user");
-      // localStorage.removeItem("yuva");
-      localStorage.clear()
-      console.log('signout');
+      localStorage.removeItem("user");
+      localStorage.removeItem("yuva");
+      localStorage.removeItem("name");
+      window.location.reload();
+      // this.router.navigate(['/login']);
+      console.log('signout localstorage', localStorage);
       // this.router.navigate(['sign-in']);
     });
   }

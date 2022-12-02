@@ -13,7 +13,7 @@
                 <h6 class="mb-0 card-text heading">Contratista</h6>
               </div>
               <div class="col-sm-5 card-text">
-                {{invitation.contracterName}}
+                {{invitation.contractorName}}
               </div>
             </div>
 
@@ -74,9 +74,9 @@
           </div>
 
           <div class="col d-flex justify-content-center">
-            <button (click)="acceptInvitation()" class="btn btn-primary mt-3 px-5 float " type="submit">Aceptar</button>
+            <button *ngIf="!decisionClicked" (click)="acceptInvitation()" class="btn btn-primary mt-3 px-5 float " type="submit">Aceptar</button>
             <span class="tab"></span>
-            <button (click)="rejectInvitation()" class="btn btn-primary mt-3 px-5 float "
+            <button *ngIf="!decisionClicked" (click)="rejectInvitation()" class="btn btn-primary mt-3 px-5 float "
               type="submit">Rechazar</button>
           </div>
         </div>

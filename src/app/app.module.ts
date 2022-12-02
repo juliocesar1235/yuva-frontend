@@ -42,6 +42,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { TranslatePipe } from './translation.pipe';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -69,7 +70,8 @@ FullCalendarModule.registerPlugins([
     LoginComponent,
     AllocationComponent,
     GoogleSigninComponent,
-    InvitationComponent
+    InvitationComponent,
+    TranslatePipe
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

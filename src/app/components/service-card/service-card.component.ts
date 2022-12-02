@@ -37,9 +37,7 @@ export class ServiceCardComponent implements OnInit {
 
   selectService(id: any) {
     localStorage.setItem("serviceId", id)
-    // let userId = localStorage.getItem("yuva");
-
-    this.router.navigate(['/service-detail'])
+    this.router.navigate(['/service-detail/' + id])
   }
 
  

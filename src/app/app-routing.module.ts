@@ -15,7 +15,7 @@ import { GoogleSigninComponent } from './components/google-signin/google-signin.
 import { InvitationComponent } from './components/invitation/invitation.component';
 
 const routes: Routes = [
-  { path: 'service-detail', component: ServiceDetailComponent },
+  { path: 'service-detail/:id', component: ServiceDetailComponent },
   { path: 'services', component: ServiceListComponent },
   { path: 'profile/contractor/:id/favorite', component: FavoriteServiceComponent },
   { path: 'employee/signup/:id', component: SignupEmployeeComponent },
@@ -23,10 +23,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile/contractor/:id', component: ContractorProfileComponent },
   { path: 'googleSignIn', component: GoogleSigninComponent },
-  { path: 'invitation/:id', component: InvitationComponent},
+  { path: 'invitation/:id', component: InvitationComponent },
   { path: 'profile/employee/:id', component: EmployeeProfileComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'confirmService/:id', component: AllocationComponent },
+  { path: 'allocation/:id', component: AllocationComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'prefix' }
 ];

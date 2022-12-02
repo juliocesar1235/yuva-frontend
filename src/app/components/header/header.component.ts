@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  userAuthenticated!: boolean;
-  userName!:any;
+  userAuthenticated: boolean = false;
+  userName!: any;
   userEmp!: boolean;
   userID!: any;
   constructor(
@@ -23,20 +23,19 @@ export class HeaderComponent implements OnInit {
   }
 
   signOut() {
-    this.authService.SignOut().then(() => {
-      window.location.reload();
-    });
+    this.userAuthenticated = false;
+    this.authService.SignOut();
   }
 
   userLoggedIn() {
-    if (localStorage.getItem('user')) {
-      this.userAuthenticated = true;
+    if (localStorage.getItem('user') != 'null') {
+      this.userAuthenticated = true
     } else {
       this.userAuthenticated = false;
     }
   }
 
-  getUserType(){
+  getUserType() {
     if (localStorage.getItem('userT') == "employee") {
       this.userEmp = true;
     } else {
@@ -44,17 +43,17 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  routHistorial(){
-    if(localStorage.getItem('userT') == "employee"){
+  routHistorial() {
+    if (localStorage.getItem('userT') == "employee") {
       this.router.navigate(['profile/employee/' + localStorage.getItem("yuva")])
-    }else{
+    } else {
       this.router.navigate(['profile/contractor/' + localStorage.getItem("yuva")])
     }
 
   }
 
-  routfavoritel(){
-    this.router.navigate(['profile/contractor/'+localStorage.getItem("yuva")+ '/favorite'])
+  routfavoritel() {
+    this.router.navigate(['profile/contractor/' + localStorage.getItem("yuva") + '/favorite'])
     // profile/contractor/:id/favorite
   }
 }

@@ -10,7 +10,7 @@ export interface IUser {
   avatar: string;
   firebaseID: string;
   phoneNumber?: string;
-  dateOfBirth?: Date;
+  dateOfBirth?: Date | number;
   address?: string;
   zipcode?: string;
   city?: string;
@@ -26,4 +26,18 @@ export interface IUser {
   idProvider?: string;
   favoriteServices?: Array<any>;
   id?: any;
+}
+
+export interface IContractorProfile {
+  avatar?: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber?: string;
+  dateOfBirth?: string;
+  userType: string;
+  address: string;
+  city: string;
+  zipcode?: string;
+  country?: string;
 }

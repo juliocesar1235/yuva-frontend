@@ -2,9 +2,30 @@
     color: black
 }
 
-// .card1 img {
-//     max-width: 100%;
-// }
+b {
+    color: darkslategray;
+}
+
+.profile-pic {
+    margin-bottom: 15%;
+    display: block;
+}
+
+.edit-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.center-profile {
+    display: inline-block;
+    width: 65%;
+}
+
+.section {
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 5%;
+}
 
 p {
     color: black;
