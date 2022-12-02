@@ -11,6 +11,8 @@ import { InvitationService } from 'src/app/services/invitation.service';
 export class InvitationComponent implements OnInit {
   url = "http://localhost:3000/yuva-api/invitations/"
   id: any;
+  decisionClicked:boolean = false;
+
   constructor(private route: ActivatedRoute, private http: HttpClient, public invi: InvitationService) { }
   invitation: any;
   loadInvitation() {
@@ -32,6 +34,8 @@ export class InvitationComponent implements OnInit {
       employeeId: this.invitation.employeeId
     }).subscribe((result) => {
       console.log('updated invitation')
+      this.decisionClicked = true;
+      alert("Tu respuesta fue enviada");
     });
   }
 
@@ -42,7 +46,11 @@ export class InvitationComponent implements OnInit {
       employeeId: this.invitation.employeeId
     }).subscribe((result) => {
       console.log('updated invitation')
+      this.decisionClicked = true;
+      alert("Tu respuesta fue enviada");
+      
     });
+    
   }
   ngOnInit(): void {
 
