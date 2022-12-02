@@ -103,7 +103,7 @@
               <app-service-card [isFavorite]="user.favoriteServices.includes(service._id)" [isLoggedIn]="!!user"
                 (favoriteEvent)="favoriteEventListener($event)" [service]="service"></app-service-card>
             </div>
-            <h3 *ngIf="!services || services.isEmpty()">No hay servicios favoritos</h3>
+            <h3 *ngIf="!services || services.length==0">No hay servicios favoritos</h3>
 
 
           </div>
