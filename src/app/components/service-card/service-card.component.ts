@@ -8,18 +8,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ServiceCardComponent implements OnInit {
   @Input() service: any;
-  @Output() public favoriteEvent: EventEmitter <any> = new EventEmitter();
+  @Output() public favoriteEvent: EventEmitter<any> = new EventEmitter();
   @Input() isLogedIn: boolean = false;
- 
-  @Input() isFavorite: boolean = false
- 
 
-  constructor(private router: Router) { 
-    
+  @Input() isFavorite: boolean = false
+
+
+  constructor(private router: Router) {
+
   }
 
 
-  
+
 
   clickFavorite() {
     console.log(this)
@@ -28,15 +28,13 @@ export class ServiceCardComponent implements OnInit {
 
   }
 
-  selectService(id:any){
+  selectService(id: any) {
     localStorage.setItem("serviceId", id)
-    // let userId = localStorage.getItem("yuva");
-
     this.router.navigate(['/service-detail'])
   }
 
   ngOnInit(): void {
     console.log(this.service._id, "IDDDDDD")
-   
+
   }
 }

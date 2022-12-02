@@ -11,30 +11,33 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
                 <a routerLink="/home" class="nav-item nav-link">Inicio</a>
-                <a routerLink="/services" class="nav-item nav-link">Servicios</a>
+                <a *ngIf="!userEmp" routerLink="/services" class="nav-item nav-link">Servicios</a>
             </div>
             <div *ngIf="!userAuthenticated" class="navbar-nav ms-auto">
                 <a routerLink="/register" class="nav-item nav-link nav-bold">Regístrate</a>
                 <a routerLink="/login" class="nav-item nav-link nav-bold">Iniciar sesión</a>
             </div>
             <!-- perfil dropdown -->
-            <div *ngIf="userAuthenticated" class="nav navbar-nav ms-auto"> 
+            <div *ngIf="userAuthenticated" class="nav navbar-nav ms-auto">
                 <div class="col">
                     <div ngbDropdown class="nav-item nav-link nav-bold ">
+                        <img src="https://www.oseyo.co.uk/wp-content/uploads/2020/05/empty-profile-picture-png-2.png"
+                            width="30" height="30" class="d-inline-block align-top" alt="">
                         <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
                             {{userName}}
                         </button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="">
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1 navbar-nav ms-auto" class="">
                             <button (click)="routHistorial()" ngbDropdownItem>Historial</button>
                             <button *ngIf="!userEmp" (click)="routfavoritel()" ngbDropdownItem>Favoritos</button>
+                            <button routerLink="/login" (click)="signOut()" ngbDropdownItem>Cerrar sesión</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div *ngIf="userAuthenticated" class="navbar-nav ms-auto">
+            <!-- <div *ngIf="userAuthenticated" class="navbar-nav ms-auto">
                 <a routerLink="/login" (click)="signOut()" class="nav-item nav-link nav-bold">Salir sesion</a>
-            </div>
-            
+            </div> -->
+
 
         </div>
     </div>
